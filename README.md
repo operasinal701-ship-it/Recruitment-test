@@ -1,10 +1,12 @@
-<!DOCTYPE html>
 <html>
 <head>
   <base target="_top">
 
   <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+        content="width=device-width,
+                 initial-scale=1.0,
+                 maximum-scale=1.0,
+                 user-scalable=no">
 
   <title>Recruitment Test</title>
 
@@ -17,13 +19,13 @@
       margin: 0;
       padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: #f4f6f8;
+      background: #f5f6f8;
       color: #222;
     }
 
     .container {
       width: 100%;
-      max-width: 900px;
+      max-width: 760px;
       margin: 0 auto;
       padding: 20px;
     }
@@ -31,34 +33,31 @@
     .card {
       background: #fff;
       border-radius: 14px;
-      padding: 25px;
-      box-shadow: 0 3px 15px rgba(0,0,0,0.08);
+      padding: 24px;
+      box-shadow: 0 3px 15px rgba(0,0,0,.08);
       margin-top: 20px;
     }
 
-    .header {
-      text-align: center;
-      margin-bottom: 25px;
-    }
-
-    .header h1 {
+    h1 {
       margin: 0 0 8px;
-      font-size: 28px;
+      text-align: center;
+      font-size: 26px;
     }
 
-    .header p {
-      margin: 0;
+    h2 {
+      margin-top: 0;
+    }
+
+    .subtitle {
+      text-align: center;
       color: #666;
-    }
-
-    .form-group {
-      margin-bottom: 18px;
+      margin-bottom: 25px;
     }
 
     label {
       display: block;
-      margin-bottom: 7px;
       font-weight: bold;
+      margin: 15px 0 7px;
     }
 
     input[type="email"],
@@ -77,270 +76,189 @@
       border-color: #555;
     }
 
-    textarea {
-      min-height: 100px;
-      resize: vertical;
-    }
-
     button {
       width: 100%;
-      padding: 14px 18px;
+      padding: 14px;
+      margin-top: 18px;
       border: 0;
       border-radius: 8px;
+      background: #222;
+      color: white;
       font-size: 16px;
       font-weight: bold;
       cursor: pointer;
-      background: #222;
-      color: #fff;
-    }
-
-    button:hover {
-      opacity: 0.9;
     }
 
     button:disabled {
-      opacity: 0.5;
+      opacity: .5;
       cursor: not-allowed;
     }
 
-    .secondary-button {
+    .secondary {
       background: #666;
-      margin-top: 10px;
+    }
+
+    .danger {
+      background: #b00020;
+    }
+
+    .success {
+      background: #176b38;
+    }
+
+    .info {
+      background: #eef3ff;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .warning {
+      background: #fff4d6;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 15px;
+      line-height: 1.5;
+    }
+
+    .error {
+      background: #ffe8e8;
+      color: #a00000;
+      border-radius: 8px;
+      padding: 14px;
+      margin-top: 15px;
+      line-height: 1.5;
     }
 
     .hidden {
       display: none !important;
     }
 
-    .message {
-      padding: 15px;
-      border-radius: 8px;
-      margin-bottom: 18px;
-      line-height: 1.5;
-    }
-
-    .message.info {
-      background: #eef4ff;
-      color: #174a9c;
-    }
-
-    .message.success {
-      background: #eaf8ee;
-      color: #176b32;
-    }
-
-    .message.error {
-      background: #fff0f0;
-      color: #a40000;
-    }
-
-    .message.warning {
-      background: #fff8e6;
-      color: #8a5a00;
+    .loading {
+      text-align: center;
+      padding: 25px;
+      color: #555;
     }
 
     .rules {
       background: #f7f7f7;
-      padding: 18px;
       border-radius: 10px;
-      margin-bottom: 20px;
-      line-height: 1.7;
-    }
-
-    .rules h3 {
-      margin-top: 0;
+      padding: 15px;
+      line-height: 1.6;
+      margin-top: 20px;
     }
 
     .rules ol {
       margin-bottom: 0;
     }
 
-    .waiting-box {
-      text-align: center;
-      padding: 30px 15px;
-    }
-
-    .waiting-icon {
-      font-size: 50px;
-      margin-bottom: 15px;
-    }
-
-    .waiting-box h2 {
-      margin-top: 0;
-    }
-
-    .status-text {
-      color: #666;
-      line-height: 1.6;
-    }
-
-    .exam-top {
+    .timer {
       position: sticky;
       top: 0;
       z-index: 100;
-      background: #fff;
-      border-bottom: 1px solid #ddd;
-      padding: 12px 15px;
-      margin: -25px -25px 25px;
-      border-radius: 14px 14px 0 0;
-    }
-
-    .exam-top-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 15px;
-    }
-
-    .participant-info {
-      font-size: 14px;
-      line-height: 1.4;
-    }
-
-    .timer {
-      min-width: 125px;
-      text-align: center;
-      padding: 10px 14px;
-      border-radius: 8px;
       background: #222;
-      color: #fff;
+      color: white;
+      padding: 13px;
+      border-radius: 10px;
+      text-align: center;
+      font-size: 20px;
       font-weight: bold;
-      font-size: 18px;
+      margin-bottom: 18px;
     }
 
-    .timer.warning {
-      background: #b36b00;
+    .timer.warningTimer {
+      background: #a35b00;
     }
 
-    .timer.danger {
-      background: #a40000;
+    .timer.dangerTimer {
+      background: #b00020;
     }
 
-    .question-card {
+    .question {
+      background: #fff;
       border: 1px solid #ddd;
       border-radius: 10px;
-      padding: 20px;
+      padding: 18px;
       margin-bottom: 18px;
-      background: #fff;
     }
 
     .question-number {
       font-weight: bold;
       margin-bottom: 10px;
-      color: #555;
     }
 
     .question-text {
       font-size: 17px;
-      font-weight: bold;
       line-height: 1.5;
-      margin-bottom: 18px;
+      margin-bottom: 15px;
       white-space: pre-wrap;
     }
 
     .choice {
-      display: flex;
-      align-items: flex-start;
-      gap: 10px;
-      padding: 12px;
+      display: block;
       border: 1px solid #ddd;
       border-radius: 8px;
-      margin-bottom: 10px;
+      padding: 12px;
+      margin: 8px 0;
       cursor: pointer;
-      transition: 0.15s;
+      font-weight: normal;
     }
 
     .choice:hover {
-      background: #f7f7f7;
+      background: #f5f5f5;
     }
 
     .choice input {
-      margin-top: 3px;
-      flex-shrink: 0;
+      margin-right: 8px;
     }
 
-    .choice span {
-      line-height: 1.4;
+    textarea.answer-text {
+      min-height: 110px;
+      resize: vertical;
     }
 
-    .exam-actions {
-      margin-top: 25px;
-      padding-top: 20px;
-      border-top: 1px solid #ddd;
+    .progress {
+      height: 8px;
+      background: #ddd;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 18px;
     }
 
-    .submit-button {
-      background: #176b32;
+    .progressBar {
+      height: 100%;
+      width: 0%;
+      background: #333;
+      transition: width .2s;
     }
 
-    .loading {
-      text-align: center;
-      padding: 25px;
-      color: #666;
-    }
-
-    .spinner {
-      width: 35px;
-      height: 35px;
-      border: 4px solid #ddd;
-      border-top-color: #222;
-      border-radius: 50%;
-      animation: spin 0.8s linear infinite;
-      margin: 0 auto 15px;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .success-screen {
-      text-align: center;
-      padding: 30px 10px;
-    }
-
-    .success-icon {
-      font-size: 55px;
+    .participant {
+      background: #f2f2f2;
+      padding: 12px;
+      border-radius: 8px;
       margin-bottom: 15px;
+      line-height: 1.5;
     }
 
-    .success-screen h2 {
-      margin-bottom: 10px;
+    .statusText {
+      text-align: center;
+      font-weight: bold;
+      margin-top: 15px;
     }
 
-    .success-screen p {
-      color: #666;
-      line-height: 1.6;
-    }
-
-    @media (max-width: 600px) {
-
+    @media(max-width:600px) {
       .container {
         padding: 10px;
       }
 
       .card {
-        padding: 18px;
+        padding: 17px;
         margin-top: 10px;
-        border-radius: 10px;
       }
 
-      .header h1 {
-        font-size: 23px;
-      }
-
-      .exam-top {
-        margin: -18px -18px 18px;
-      }
-
-      .exam-top-inner {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .timer {
-        width: 100%;
+      h1 {
+        font-size: 22px;
       }
 
       .question-text {
@@ -355,171 +273,154 @@
 <div class="container">
 
   <!-- =====================================================
-       HALAMAN PENDAFTARAN
+       HALAMAN AWAL
        ===================================================== -->
 
-  <div id="registrationCard" class="card">
+  <div id="homePage" class="card">
 
-    <div class="header">
-      <h1>Recruitment Test</h1>
-      <p>Silakan isi data peserta sebelum memulai.</p>
+    <h1>Recruitment Test</h1>
+
+    <div class="subtitle">
+      Silakan isi data untuk mengikuti tes.
     </div>
 
-    <div id="registrationMessage"></div>
+    <label for="email">
+      Email
+    </label>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Masukkan email"
+      autocomplete="email"
+    >
+
+    <label for="name">
+      Nama Lengkap
+    </label>
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Masukkan nama lengkap"
+      autocomplete="name"
+    >
 
     <div class="rules">
 
-      <h3>Tata Tertib</h3>
+      <strong>Tata Tertib Tes</strong>
 
       <ol>
-        <li>Pastikan nama dan email yang digunakan sudah benar.</li>
-        <li>Peserta hanya dapat mengikuti tes sesuai akses yang diberikan.</li>
+        <li>Gunakan email yang didaftarkan.</li>
+        <li>Isi nama lengkap dengan benar.</li>
+        <li>Kerjakan tes secara mandiri.</li>
         <li>Waktu pengerjaan adalah 30 menit.</li>
-        <li>Jawaban dapat tersimpan selama ujian berlangsung.</li>
-        <li>Jangan menutup halaman selama ujian berlangsung.</li>
-        <li>Setelah ujian dikirim, peserta tidak dapat mengulang tes.</li>
+        <li>Jawaban akan tersimpan selama tes berlangsung.</li>
+        <li>Setelah waktu habis, tes akan otomatis dikirim.</li>
+        <li>Setelah tes dikirim, peserta tidak dapat mengulang.</li>
       </ol>
 
     </div>
 
-    <div class="form-group">
+    <button
+      id="checkButton"
+      onclick="checkParticipant()">
+      PERIKSA DATA
+    </button>
 
-      <label for="email">
-        Email
-      </label>
+    <div id="homeMessage"></div>
 
-      <input
-        type="email"
-        id="email"
-        placeholder="Masukkan email"
-        autocomplete="email"
-      >
+  </div>
 
+
+  <!-- =====================================================
+       MENUNGGU ADMIN
+       ===================================================== -->
+
+  <div id="waitingPage"
+       class="card hidden">
+
+    <h2>Menunggu Verifikasi</h2>
+
+    <div class="warning">
+      Data Anda sudah terdaftar.
+      Silakan menunggu admin memberikan akses untuk memulai tes.
     </div>
 
-    <div class="form-group">
-
-      <label for="name">
-        Nama Lengkap
-      </label>
-
-      <input
-        type="text"
-        id="name"
-        placeholder="Masukkan nama lengkap"
-        autocomplete="name"
-      >
-
+    <div id="waitingInfo"
+         class="participant">
     </div>
 
     <button
-      id="registerButton"
-      onclick="registerParticipant()">
-      MASUK
+      onclick="checkStatusAgain()">
+      PERIKSA STATUS LAGI
     </button>
 
   </div>
 
 
   <!-- =====================================================
-       HALAMAN MENUNGGU ADMIN
+       SUDAH DISETUJUI
        ===================================================== -->
 
-  <div id="waitingCard" class="card hidden">
+  <div id="approvedPage"
+       class="card hidden">
 
-    <div class="waiting-box">
+    <h2>Akses Disetujui</h2>
 
-      <div class="waiting-icon">
-        ⏳
-      </div>
-
-      <h2>Menunggu Verifikasi</h2>
-
-      <p id="waitingMessage" class="status-text">
-        Data peserta sudah diterima.
-      </p>
-
-      <p class="status-text">
-        Setelah admin memberikan akses,
-        halaman ini akan otomatis memeriksa kembali.
-      </p>
-
-      <button
-        class="secondary-button"
-        onclick="checkStatus()">
-        CEK STATUS
-      </button>
-
+    <div class="success info">
+      Akses tes Anda sudah disetujui oleh admin.
     </div>
+
+    <div id="approvedInfo"
+         class="participant">
+    </div>
+
+    <button
+      id="startButton"
+      onclick="startTest()">
+      MULAI TES
+    </button>
 
   </div>
 
 
   <!-- =====================================================
-       HALAMAN LOADING
+       UJIAN
        ===================================================== -->
 
-  <div id="loadingCard" class="card hidden">
+  <div id="examPage"
+       class="hidden">
 
-    <div class="loading">
+    <div class="card">
 
-      <div class="spinner"></div>
-
-      <div id="loadingText">
-        Memproses...
+      <div id="timer"
+           class="timer">
+        30:00
       </div>
 
-    </div>
+      <div id="examParticipant"
+           class="participant">
+      </div>
 
-  </div>
-
-
-  <!-- =====================================================
-       HALAMAN UJIAN
-       ===================================================== -->
-
-  <div id="examCard" class="card hidden">
-
-    <div class="exam-top">
-
-      <div class="exam-top-inner">
-
-        <div class="participant-info">
-
-          <strong id="examName">
-            Peserta
-          </strong>
-
-          <br>
-
-          <span id="examEmail">
-            -
-          </span>
-
-        </div>
-
+      <div class="progress">
         <div
-          id="timer"
-          class="timer">
-          30:00
+          id="progressBar"
+          class="progressBar">
         </div>
-
       </div>
 
-    </div>
-
-    <div id="examMessage"></div>
-
-    <div id="questionsContainer"></div>
-
-    <div class="exam-actions">
+      <div id="questionsContainer">
+      </div>
 
       <button
         id="submitButton"
-        class="submit-button"
-        onclick="submitExamNow()">
+        class="success"
+        onclick="submitTest()">
         KIRIM JAWABAN
       </button>
+
+      <div id="examMessage"></div>
 
     </div>
 
@@ -527,23 +428,17 @@
 
 
   <!-- =====================================================
-       HALAMAN SELESAI
+       SELESAI
        ===================================================== -->
 
-  <div id="successCard" class="card hidden">
+  <div id="finishedPage"
+       class="card hidden">
 
-    <div class="success-screen">
+    <h2>Ujian Selesai</h2>
 
-      <div class="success-icon">
-        ✅
-      </div>
-
-      <h2>Ujian Selesai</h2>
-
-      <p id="successMessage">
-        Jawaban Anda telah diterima.
-      </p>
-
+    <div id="finishedMessage"
+         class="success info">
+      Jawaban Anda telah diterima.
     </div>
 
   </div>
@@ -553,411 +448,418 @@
 
 <script>
 
-  /*
-   * ========================================================
-   * STATE
-   * ========================================================
-   */
+  /* =====================================================
+     GLOBAL
+     ===================================================== */
 
   let currentEmail = '';
   let currentName = '';
+
   let currentSessionId = '';
 
-  let examQuestions = [];
-  let examAnswers = {};
+  let questions = [];
 
-  let startTime = 0;
+  let answers = {};
+
   let endTime = 0;
 
   let timerInterval = null;
-  let autosaveInterval = null;
-  let statusInterval = null;
 
-  let submitting = false;
+  let saveTimeout = null;
 
-
-  /*
-   * ========================================================
-   * INIT
-   * ========================================================
-   */
-
-  document.addEventListener(
-    'DOMContentLoaded',
-    function() {
-
-      loadSavedParticipant();
-
-    }
-  );
+  let isSubmitting = false;
 
 
-  /*
-   * ========================================================
-   * LOCAL STORAGE
-   * ========================================================
-   */
+  /* =====================================================
+     HELPER
+     ===================================================== */
 
-  function loadSavedParticipant() {
+  function $(id) {
+    return document.getElementById(id);
+  }
 
-    try {
 
-      const savedEmail =
-        localStorage.getItem(
-          'recruitment_email'
-        );
+  function escapeHtml(value) {
 
-      const savedName =
-        localStorage.getItem(
-          'recruitment_name'
-        );
-
-      if (savedEmail) {
-
-        document.getElementById(
-          'email'
-        ).value = savedEmail;
-
-      }
-
-      if (savedName) {
-
-        document.getElementById(
-          'name'
-        ).value = savedName;
-
-      }
-
-      if (savedEmail) {
-
-        currentEmail =
-          savedEmail;
-
-        checkStatusSilently(
-          savedEmail
-        );
-
-      }
-
-    } catch (error) {
-
-      console.log(error);
-
-    }
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
 
   }
 
 
-  function saveParticipantLocal(
-    email,
-    name
-  ) {
+  function showOnly(pageId) {
 
-    try {
+    const pages = [
+      'homePage',
+      'waitingPage',
+      'approvedPage',
+      'examPage',
+      'finishedPage'
+    ];
 
-      localStorage.setItem(
-        'recruitment_email',
-        email
-      );
+    pages.forEach(function(id) {
 
-      localStorage.setItem(
-        'recruitment_name',
-        name
-      );
+      $(id).classList.add('hidden');
 
-    } catch (error) {
+    });
 
-      console.log(error);
+    $(pageId).classList.remove('hidden');
 
-    }
+    window.scrollTo(0, 0);
 
   }
 
 
-  /*
-   * ========================================================
-   * UI
-   * ========================================================
-   */
+  function showError(elementId, message) {
 
-  function hideAllCards() {
-
-    document
-      .getElementById(
-        'registrationCard'
-      )
-      .classList.add('hidden');
-
-    document
-      .getElementById(
-        'waitingCard'
-      )
-      .classList.add('hidden');
-
-    document
-      .getElementById(
-        'loadingCard'
-      )
-      .classList.add('hidden');
-
-    document
-      .getElementById(
-        'examCard'
-      )
-      .classList.add('hidden');
-
-    document
-      .getElementById(
-        'successCard'
-      )
-      .classList.add('hidden');
+    $(elementId).innerHTML =
+      '<div class="error">' +
+      escapeHtml(message) +
+      '</div>';
 
   }
 
 
-  function showRegistration() {
+  function clearMessage(elementId) {
 
-    hideAllCards();
-
-    document
-      .getElementById(
-        'registrationCard'
-      )
-      .classList.remove('hidden');
+    $(elementId).innerHTML = '';
 
   }
 
 
-  function showWaiting(
-    message
-  ) {
+  function normalizeEmail(email) {
 
-    hideAllCards();
-
-    document
-      .getElementById(
-        'waitingCard'
-      )
-      .classList.remove('hidden');
-
-    document
-      .getElementById(
-        'waitingMessage'
-      )
-      .textContent =
-      message ||
-      'Data peserta sudah diterima.';
+    return String(email || '')
+      .trim()
+      .toLowerCase();
 
   }
 
 
-  function showLoading(
-    text
-  ) {
+  /* =====================================================
+     PEMERIKSAAN DATA PESERTA
+     ===================================================== */
 
-    hideAllCards();
-
-    document
-      .getElementById(
-        'loadingCard'
-      )
-      .classList.remove('hidden');
-
-    document
-      .getElementById(
-        'loadingText'
-      )
-      .textContent =
-      text ||
-      'Memproses...';
-
-  }
-
-
-  function showExam() {
-
-    hideAllCards();
-
-    document
-      .getElementById(
-        'examCard'
-      )
-      .classList.remove('hidden');
-
-  }
-
-
-  function showSuccess(
-    message
-  ) {
-
-    hideAllCards();
-
-    document
-      .getElementById(
-        'successCard'
-      )
-      .classList.remove('hidden');
-
-    document
-      .getElementById(
-        'successMessage'
-      )
-      .textContent =
-      message ||
-      'Jawaban Anda telah diterima.';
-
-  }
-
-
-  function showMessage(
-    elementId,
-    message,
-    type
-  ) {
-
-    const element =
-      document.getElementById(
-        elementId
-      );
-
-    if (!element) {
-      return;
-    }
-
-    element.innerHTML =
-      '';
-
-    if (!message) {
-      return;
-    }
-
-    const div =
-      document.createElement(
-        'div'
-      );
-
-    div.className =
-      'message ' +
-      (
-        type ||
-        'info'
-      );
-
-    div.textContent =
-      message;
-
-    element.appendChild(
-      div
-    );
-
-  }
-
-
-  /*
-   * ========================================================
-   * REGISTER
-   * ========================================================
-   */
-
-  function registerParticipant() {
+  function checkParticipant() {
 
     const email =
-      document
-        .getElementById(
-          'email'
-        )
-        .value
-        .trim()
-        .toLowerCase();
+      normalizeEmail(
+        $('email').value
+      );
 
     const name =
-      document
-        .getElementById(
-          'name'
-        )
-        .value
-        .trim();
+      String(
+        $('name').value || ''
+      ).trim();
+
 
     if (!email) {
 
-      showMessage(
-        'registrationMessage',
-        'Email wajib diisi.',
-        'error'
+      showError(
+        'homeMessage',
+        'Email wajib diisi.'
       );
 
       return;
 
     }
 
-    if (!isValidEmail(email)) {
 
-      showMessage(
-        'registrationMessage',
-        'Format email tidak valid.',
-        'error'
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+
+      showError(
+        'homeMessage',
+        'Format email tidak valid.'
       );
 
       return;
 
     }
+
 
     if (!name) {
 
-      showMessage(
-        'registrationMessage',
-        'Nama wajib diisi.',
-        'error'
+      showError(
+        'homeMessage',
+        'Nama lengkap wajib diisi.'
       );
 
       return;
 
     }
 
-    currentEmail =
-      email;
 
-    currentName =
-      name;
+    currentEmail = email;
+    currentName = name;
 
-    saveParticipantLocal(
-      email,
-      name
-    );
 
-    const button =
-      document.getElementById(
-        'registerButton'
-      );
+    $('checkButton').disabled = true;
 
-    button.disabled =
-      true;
+    $('checkButton').innerText =
+      'MEMERIKSA...';
 
-    button.textContent =
-      'MEMPROSES...';
-
-    showMessage(
-      'registrationMessage',
-      'Memeriksa data peserta...',
-      'info'
-    );
+    clearMessage('homeMessage');
 
 
     google.script.run
 
       .withSuccessHandler(
-        function(result) {
+        handleParticipantStatus
+      )
 
-          button.disabled =
-            false;
+      .withFailureHandler(
+        function(error) {
 
-          button.textContent =
-            'MASUK';
+          $('checkButton').disabled = false;
 
-          handleRegistrationResult(
-            result
+          $('checkButton').innerText =
+            'PERIKSA DATA';
+
+          showError(
+            'homeMessage',
+            error.message ||
+            'Terjadi kesalahan saat memeriksa data.'
           );
+
+        }
+      )
+
+      .getParticipantStatus(
+        currentEmail
+      );
+
+  }
+
+
+  /* =====================================================
+     HASIL PEMERIKSAAN
+     ===================================================== */
+
+  function handleParticipantStatus(data) {
+
+    $('checkButton').disabled = false;
+
+    $('checkButton').innerText =
+      'PERIKSA DATA';
+
+
+    if (!data) {
+
+      showError(
+        'homeMessage',
+        'Tidak ada respons dari server.'
+      );
+
+      return;
+
+    }
+
+
+    if (data.hasHistory) {
+
+      showOnly('finishedPage');
+
+      $('finishedMessage').innerHTML =
+        'Email ini sudah memiliki riwayat tes. ' +
+        'Tes tidak dapat diulang.';
+
+      return;
+
+    }
+
+
+    /*
+     * BELUM TERDAFTAR
+     */
+
+    if (
+      data.registered === false
+    ) {
+
+      registerNewParticipant();
+
+      return;
+
+    }
+
+
+    /*
+     * SESSION MASIH AKTIF
+     */
+
+    if (
+      data.activeSession === true
+    ) {
+
+      currentEmail =
+        data.email ||
+        currentEmail;
+
+      currentName =
+        data.nama ||
+        currentName;
+
+      currentSessionId =
+        data.sessionId;
+
+      endTime =
+        Number(data.endTime);
+
+      questions =
+        data.questions || [];
+
+      answers =
+        data.answers || {};
+
+      showExam();
+
+      return;
+
+    }
+
+
+    /*
+     * BELUM DISETUJUI ADMIN
+     */
+
+    if (
+      data.approved !== true
+    ) {
+
+      $('waitingInfo').innerHTML =
+        '<strong>Nama:</strong> ' +
+        escapeHtml(
+          data.nama || currentName
+        ) +
+        '<br>' +
+        '<strong>Email:</strong> ' +
+        escapeHtml(
+          data.email || currentEmail
+        );
+
+      showOnly('waitingPage');
+
+      return;
+
+    }
+
+
+    /*
+     * SUDAH DISETUJUI ADMIN
+     */
+
+    currentName =
+      data.nama ||
+      currentName;
+
+    currentEmail =
+      data.email ||
+      currentEmail;
+
+
+    $('approvedInfo').innerHTML =
+      '<strong>Nama:</strong> ' +
+      escapeHtml(currentName) +
+      '<br>' +
+      '<strong>Email:</strong> ' +
+      escapeHtml(currentEmail);
+
+
+    showOnly('approvedPage');
+
+  }
+
+
+  /* =====================================================
+     PESERTA BARU
+     ===================================================== */
+
+  function registerNewParticipant() {
+
+    $('checkButton').disabled = true;
+
+    $('checkButton').innerText =
+      'MENDAFTARKAN...';
+
+
+    google.script.run
+
+      .withSuccessHandler(
+        function(data) {
+
+          $('checkButton').disabled = false;
+
+          $('checkButton').innerText =
+            'PERIKSA DATA';
+
+
+          if (!data) {
+
+            showError(
+              'homeMessage',
+              'Tidak ada respons dari server.'
+            );
+
+            return;
+
+          }
+
+
+          if (data.hasHistory) {
+
+            showOnly('finishedPage');
+
+            $('finishedMessage').innerHTML =
+              escapeHtml(
+                data.message ||
+                'Tes tidak dapat diulang.'
+              );
+
+            return;
+
+          }
+
+
+          if (data.approved === true) {
+
+            $('approvedInfo').innerHTML =
+              '<strong>Nama:</strong> ' +
+              escapeHtml(
+                data.nama ||
+                currentName
+              ) +
+              '<br>' +
+              '<strong>Email:</strong> ' +
+              escapeHtml(
+                data.email ||
+                currentEmail
+              );
+
+            showOnly('approvedPage');
+
+            return;
+
+          }
+
+
+          $('waitingInfo').innerHTML =
+            '<strong>Nama:</strong> ' +
+            escapeHtml(
+              data.nama ||
+              currentName
+            ) +
+            '<br>' +
+            '<strong>Email:</strong> ' +
+            escapeHtml(
+              data.email ||
+              currentEmail
+            );
+
+          showOnly('waitingPage');
 
         }
       )
@@ -965,479 +867,155 @@
       .withFailureHandler(
         function(error) {
 
-          button.disabled =
-            false;
+          $('checkButton').disabled = false;
 
-          button.textContent =
-            'MASUK';
+          $('checkButton').innerText =
+            'PERIKSA DATA';
 
-          showMessage(
-            'registrationMessage',
-            getErrorMessage(
-              error
-            ),
-            'error'
+          showError(
+            'homeMessage',
+            error.message ||
+            'Gagal mendaftarkan peserta.'
           );
 
         }
       )
 
       .registerParticipant(
-        email,
-        name
+        currentEmail,
+        currentName
       );
 
   }
 
 
-  /*
-   * ========================================================
-   * HANDLE REGISTER RESULT
-   * ========================================================
-   */
+  /* =====================================================
+     CEK STATUS LAGI
+     ===================================================== */
 
-  function handleRegistrationResult(
-    result
-  ) {
+  function checkStatusAgain() {
 
-    if (!result) {
+    if (!currentEmail) {
 
-      showMessage(
-        'registrationMessage',
-        'Tidak ada respons dari server.',
-        'error'
-      );
+      showOnly('homePage');
 
       return;
 
     }
 
-    if (
-      result.hasHistory
-    ) {
-
-      showMessage(
-        'registrationMessage',
-        result.message ||
-        'Email ini sudah pernah mengikuti tes.',
-        'warning'
-      );
-
-      return;
-
-    }
-
-    if (
-      result.waiting
-    ) {
-
-      currentEmail =
-        result.email ||
-        currentEmail;
-
-      currentName =
-        result.nama ||
-        currentName;
-
-      showWaiting(
-        result.message ||
-        'Menunggu verifikasi admin.'
-      );
-
-      startStatusPolling();
-
-      return;
-
-    }
-
-    if (
-      result.approved
-    ) {
-
-      checkStatus();
-
-      return;
-
-    }
-
-    showMessage(
-      'registrationMessage',
-      result.message ||
-      'Data berhasil diproses.',
-      'info'
-    );
-
-  }
-
-
-  /*
-   * ========================================================
-   * CHECK STATUS
-   * ========================================================
-   */
-
-  function checkStatus() {
-
-    let email =
-      currentEmail;
-
-    if (!email) {
-
-      email =
-        document
-          .getElementById(
-            'email'
-          )
-          .value
-          .trim()
-          .toLowerCase();
-
-    }
-
-    if (!email) {
-
-      showRegistration();
-
-      showMessage(
-        'registrationMessage',
-        'Masukkan email terlebih dahulu.',
-        'error'
-      );
-
-      return;
-
-    }
-
-    currentEmail =
-      email;
-
-    showLoading(
-      'Memeriksa status akses...'
-    );
-
-    checkStatusWithEmail(
-      email
-    );
-
-  }
-
-
-  function checkStatusSilently(
-    email
-  ) {
-
-    if (!email) {
-      return;
-    }
-
-    checkStatusWithEmail(
-      email,
-      true
-    );
-
-  }
-
-
-  function checkStatusWithEmail(
-    email,
-    silent
-  ) {
 
     google.script.run
 
       .withSuccessHandler(
-        function(result) {
-
-          handleStatusResult(
-            result,
-            !!silent
-          );
-
-        }
+        handleParticipantStatus
       )
 
       .withFailureHandler(
         function(error) {
 
-          if (!silent) {
-
-            showRegistration();
-
-            showMessage(
-              'registrationMessage',
-              getErrorMessage(
-                error
-              ),
-              'error'
-            );
-
-          }
+          alert(
+            error.message ||
+            'Gagal memeriksa status.'
+          );
 
         }
       )
 
       .getParticipantStatus(
-        email
+        currentEmail
       );
 
   }
 
 
-  /*
-   * ========================================================
-   * HANDLE STATUS
-   * ========================================================
-   */
+  /* =====================================================
+     MULAI TES
+     ===================================================== */
 
-  function handleStatusResult(
-    result,
-    silent
-  ) {
-
-    if (!result) {
-
-      if (!silent) {
-
-        showRegistration();
-
-        showMessage(
-          'registrationMessage',
-          'Server tidak memberikan respons.',
-          'error'
-        );
-
-      }
-
-      return;
-
-    }
-
-    if (
-      result.hasHistory
-    ) {
-
-      stopStatusPolling();
-
-      showRegistration();
-
-      showMessage(
-        'registrationMessage',
-        result.message ||
-        'Email ini sudah memiliki riwayat tes.',
-        'warning'
-      );
-
-      return;
-
-    }
-
-    if (
-      result.activeSession
-    ) {
-
-      stopStatusPolling();
-
-      currentEmail =
-        result.email ||
-        currentEmail;
-
-      currentName =
-        result.nama ||
-        currentName;
-
-      startExamFromSession(
-        result
-      );
-
-      return;
-
-    }
-
-    if (
-      result.approved
-    ) {
-
-      stopStatusPolling();
-
-      currentEmail =
-        result.email ||
-        currentEmail;
-
-      currentName =
-        result.nama ||
-        currentName;
-
-      showLoading(
-        'Akses disetujui. Menyiapkan ujian...'
-      );
-
-      startExam();
-
-      return;
-
-    }
-
-    if (
-      result.registered &&
-      !result.approved
-    ) {
-
-      showWaiting(
-        result.message ||
-        'Menunggu verifikasi admin.'
-      );
-
-      startStatusPolling();
-
-      return;
-
-    }
-
-    if (
-      result.registered === false
-    ) {
-
-      stopStatusPolling();
-
-      showRegistration();
-
-      showMessage(
-        'registrationMessage',
-        result.message ||
-        'Email belum terdaftar.',
-        'warning'
-      );
-
-      return;
-
-    }
-
-    if (!silent) {
-
-      showRegistration();
-
-    }
-
-  }
-
-
-  /*
-   * ========================================================
-   * POLLING STATUS ADMIN
-   * ========================================================
-   */
-
-  function startStatusPolling() {
-
-    stopStatusPolling();
-
-    statusInterval =
-      setInterval(
-        function() {
-
-          if (!currentEmail) {
-            return;
-          }
-
-          checkStatusWithEmail(
-            currentEmail,
-            true
-          );
-
-        },
-        5000
-      );
-
-  }
-
-
-  function stopStatusPolling() {
-
-    if (
-      statusInterval
-    ) {
-
-      clearInterval(
-        statusInterval
-      );
-
-      statusInterval =
-        null;
-
-    }
-
-  }
-
-
-  /*
-   * ========================================================
-   * START EXAM
-   * ========================================================
-   */
-
-  function startExam() {
+  function startTest() {
 
     if (!currentEmail) {
 
-      showRegistration();
+      alert(
+        'Email peserta tidak ditemukan.'
+      );
 
       return;
 
     }
+
+
+    $('startButton').disabled = true;
+
+    $('startButton').innerText =
+      'MEMULAI TES...';
+
 
     google.script.run
 
       .withSuccessHandler(
-        function(result) {
+        function(data) {
 
-          if (!result) {
+          $('startButton').disabled = false;
 
-            showRegistration();
+          $('startButton').innerText =
+            'MULAI TES';
 
-            showMessage(
-              'registrationMessage',
-              'Tidak ada respons dari server.',
-              'error'
+
+          if (!data) {
+
+            alert(
+              'Tidak ada respons dari server.'
             );
 
             return;
 
           }
 
-          if (
-            result.waiting
-          ) {
 
-            showWaiting(
-              result.message
-            );
+          if (data.waiting) {
 
-            startStatusPolling();
+            showOnly('waitingPage');
 
             return;
 
           }
 
-          if (
-            result.success
-          ) {
 
-            startExamFromSession(
-              result
+          if (!data.success) {
+
+            alert(
+              data.message ||
+              'Tes belum dapat dimulai.'
             );
 
             return;
 
           }
 
-          showRegistration();
 
-          showMessage(
-            'registrationMessage',
-            result.message ||
-            'Ujian belum dapat dimulai.',
-            'warning'
-          );
+          currentEmail =
+            data.email ||
+            currentEmail;
+
+          currentName =
+            data.nama ||
+            currentName;
+
+          currentSessionId =
+            data.sessionId;
+
+          endTime =
+            Number(data.endTime);
+
+          questions =
+            data.questions || [];
+
+          answers =
+            data.answers || {};
+
+
+          showExam();
 
         }
       )
@@ -1445,14 +1023,14 @@
       .withFailureHandler(
         function(error) {
 
-          showRegistration();
+          $('startButton').disabled = false;
 
-          showMessage(
-            'registrationMessage',
-            getErrorMessage(
-              error
-            ),
-            'error'
+          $('startButton').innerText =
+            'MULAI TES';
+
+          alert(
+            error.message ||
+            'Gagal memulai tes.'
           );
 
         }
@@ -1465,239 +1043,209 @@
   }
 
 
-  /*
-   * ========================================================
-   * START / RESUME SESSION
-   * ========================================================
-   */
+  /* =====================================================
+     TAMPILKAN SOAL
+     ===================================================== */
 
-  function startExamFromSession(
-    result
-  ) {
+  function showExam() {
 
-    if (
-      !result ||
-      !result.sessionId
-    ) {
+    if (!questions || !questions.length) {
 
-      showRegistration();
-
-      showMessage(
-        'registrationMessage',
-        'Session ujian tidak ditemukan.',
-        'error'
+      showError(
+        'examMessage',
+        'Soal tidak ditemukan. Periksa sheet SOAL dan kolom AKTIF.'
       );
+
+      showOnly('examPage');
 
       return;
 
     }
 
-    currentSessionId =
-      result.sessionId;
 
-    currentEmail =
-      result.email ||
-      currentEmail;
+    $('examParticipant').innerHTML =
+      '<strong>Nama:</strong> ' +
+      escapeHtml(currentName) +
+      '<br>' +
+      '<strong>Email:</strong> ' +
+      escapeHtml(currentEmail);
 
-    currentName =
-      result.nama ||
-      currentName;
-
-    startTime =
-      Number(
-        result.startTime || 0
-      );
-
-    endTime =
-      Number(
-        result.endTime || 0
-      );
-
-    examQuestions =
-      Array.isArray(
-        result.questions
-      )
-        ? result.questions
-        : [];
-
-    examAnswers =
-      result.answers ||
-      {};
-
-    if (
-      !examQuestions.length
-    ) {
-
-      showRegistration();
-
-      showMessage(
-        'registrationMessage',
-        'Soal tidak ditemukan. Pastikan sheet SOAL memiliki soal aktif.',
-        'error'
-      );
-
-      return;
-
-    }
-
-    document
-      .getElementById(
-        'examName'
-      )
-      .textContent =
-      currentName ||
-      'Peserta';
-
-    document
-      .getElementById(
-        'examEmail'
-      )
-      .textContent =
-      currentEmail ||
-      '';
 
     renderQuestions();
 
-    showExam();
+    showOnly('examPage');
 
     startTimer();
 
-    startAutosave();
+    updateProgress();
 
   }
 
 
-  /*
-   * ========================================================
-   * RENDER SOAL
-   * ========================================================
-   */
+  /* =====================================================
+     RENDER SOAL
+     ===================================================== */
 
   function renderQuestions() {
 
     const container =
-      document.getElementById(
-        'questionsContainer'
-      );
+      $('questionsContainer');
 
-    container.innerHTML =
-      '';
+    container.innerHTML = '';
 
-    examQuestions.forEach(
+
+    questions.forEach(
       function(q, index) {
 
-        const card =
-          document.createElement(
-            'div'
-          );
-
-        card.className =
-          'question-card';
-
         const number =
-          document.createElement(
-            'div'
-          );
-
-        number.className =
-          'question-number';
-
-        number.textContent =
-          'Soal ' +
-          (
-            q.no ||
-            index + 1
-          );
-
-        card.appendChild(
-          number
-        );
-
-
-        const question =
-          document.createElement(
-            'div'
-          );
-
-        question.className =
-          'question-text';
-
-        question.textContent =
-          q.question ||
-          '';
-
-        card.appendChild(
-          question
-        );
-
+          index + 1;
 
         const type =
           String(
-            q.type ||
-            'TEXT'
-          )
-          .trim()
-          .toUpperCase();
+            q.type || 'TEXT'
+          ).toUpperCase();
 
-        const choices =
-          Array.isArray(
-            q.choices
-          )
-            ? q.choices
-            : [];
+        const saved =
+          answers[String(number)];
 
+
+        const box =
+          document.createElement('div');
+
+        box.className =
+          'question';
+
+
+        let html =
+          '<div class="question-number">' +
+          'Soal ' +
+          number +
+          '</div>';
+
+
+        html +=
+          '<div class="question-text">' +
+          escapeHtml(
+            q.question
+          ) +
+          '</div>';
+
+
+        /*
+         * PILIHAN
+         */
 
         if (
-          choices.length &&
-          (
-            type === 'RADIO' ||
-            type === 'SINGLE' ||
-            type === 'PILIHAN' ||
-            type === 'CHOICE' ||
-            type === 'MULTIPLE_CHOICE'
-          )
+          q.choices &&
+          q.choices.length
         ) {
 
-          renderRadioChoices(
-            card,
-            q,
-            index,
-            choices
+          q.choices.forEach(
+            function(choice, choiceIndex) {
+
+              const checked =
+                String(saved || '') ===
+                String(choice)
+                  ? 'checked'
+                  : '';
+
+
+              html +=
+                '<label class="choice">' +
+                '<input ' +
+                'type="radio" ' +
+                'name="question_' +
+                number +
+                '" ' +
+                'value="' +
+                escapeHtml(choice) +
+                '" ' +
+                checked +
+                ' onchange="answerChanged(' +
+                number +
+                ', this.value)">' +
+                escapeHtml(choice) +
+                '</label>';
+
+            }
           );
 
         }
+
+        /*
+         * YA / TIDAK
+         */
 
         else if (
-          choices.length &&
-          (
-            type === 'CHECKBOX' ||
-            type === 'MULTI' ||
-            type === 'MULTIPLE'
-          )
+          type === 'YA_TIDAK' ||
+          type === 'YES_NO' ||
+          type === 'BOOLEAN'
         ) {
 
-          renderCheckboxChoices(
-            card,
-            q,
-            index,
-            choices
+          [
+            'YA',
+            'TIDAK'
+          ].forEach(
+            function(choice) {
+
+              const checked =
+                String(saved || '') ===
+                choice
+                  ? 'checked'
+                  : '';
+
+
+              html +=
+                '<label class="choice">' +
+                '<input ' +
+                'type="radio" ' +
+                'name="question_' +
+                number +
+                '" ' +
+                'value="' +
+                choice +
+                '" ' +
+                checked +
+                ' onchange="answerChanged(' +
+                number +
+                ', this.value)">' +
+                choice +
+                '</label>';
+
+            }
           );
 
         }
+
+        /*
+         * TEXT
+         */
 
         else {
 
-          renderTextAnswer(
-            card,
-            q,
-            index
-          );
+          html +=
+            '<textarea ' +
+            'class="answer-text" ' +
+            'id="answer_' +
+            number +
+            '" ' +
+            'placeholder="Tulis jawaban Anda..." ' +
+            'oninput="answerChanged(' +
+            number +
+            ', this.value)">' +
+            escapeHtml(
+              saved || ''
+            ) +
+            '</textarea>';
 
         }
 
+
+        box.innerHTML =
+          html;
 
         container.appendChild(
-          card
+          box
         );
 
       }
@@ -1706,277 +1254,159 @@
   }
 
 
-  /*
-   * ========================================================
-   * RADIO
-   * ========================================================
-   */
+  /* =====================================================
+     JAWABAN BERUBAH
+     ===================================================== */
 
-  function renderRadioChoices(
-    card,
-    question,
-    index,
-    choices
+  function answerChanged(
+    number,
+    value
   ) {
 
-    const saved =
-      examAnswers[
-        String(
-          index + 1
-        )
-      ];
-
-    choices.forEach(
-      function(choice, choiceIndex) {
-
-        const label =
-          document.createElement(
-            'label'
-          );
-
-        label.className =
-          'choice';
-
-        const input =
-          document.createElement(
-            'input'
-          );
-
-        input.type =
-          'radio';
-
-        input.name =
-          'question_' +
-          index;
-
-        input.value =
-          choice;
-
-        if (
-          saved === choice
-        ) {
-
-          input.checked =
-            true;
-
-        }
-
-        input.addEventListener(
-          'change',
-          function() {
-
-            examAnswers[
-              String(
-                index + 1
-              )
-            ] =
-              input.value;
-
-          }
-        );
-
-        const span =
-          document.createElement(
-            'span'
-          );
-
-        span.textContent =
-          choice;
-
-        label.appendChild(
-          input
-        );
-
-        label.appendChild(
-          span
-        );
-
-        card.appendChild(
-          label
-        );
-
-      }
-    );
-
-  }
+    answers[String(number)] =
+      value;
 
 
-  /*
-   * ========================================================
-   * CHECKBOX
-   * ========================================================
-   */
+    updateProgress();
 
-  function renderCheckboxChoices(
-    card,
-    question,
-    index,
-    choices
-  ) {
 
-    let saved =
-      examAnswers[
-        String(
-          index + 1
-        )
-      ];
+    /*
+     * SIMPAN OTOMATIS
+     */
 
-    if (
-      !Array.isArray(saved)
-    ) {
+    if (saveTimeout) {
 
-      saved =
-        [];
+      clearTimeout(
+        saveTimeout
+      );
 
     }
 
-    choices.forEach(
-      function(choice) {
 
-        const label =
-          document.createElement(
-            'label'
-          );
-
-        label.className =
-          'choice';
-
-        const input =
-          document.createElement(
-            'input'
-          );
-
-        input.type =
-          'checkbox';
-
-        input.value =
-          choice;
-
-        input.checked =
-          saved.includes(
-            choice
-          );
-
-        input.addEventListener(
-          'change',
-          function() {
-
-            const selected =
-              Array.from(
-                card.querySelectorAll(
-                  'input[type="checkbox"]'
-                )
-              )
-              .filter(
-                function(item) {
-                  return item.checked;
-                }
-              )
-              .map(
-                function(item) {
-                  return item.value;
-                }
-              );
-
-            examAnswers[
-              String(
-                index + 1
-              )
-            ] =
-              selected;
-
-          }
-        );
-
-        const span =
-          document.createElement(
-            'span'
-          );
-
-        span.textContent =
-          choice;
-
-        label.appendChild(
-          input
-        );
-
-        label.appendChild(
-          span
-        );
-
-        card.appendChild(
-          label
-        );
-
-      }
-    );
-
-  }
-
-
-  /*
-   * ========================================================
-   * TEXT ANSWER
-   * ========================================================
-   */
-
-  function renderTextAnswer(
-    card,
-    question,
-    index
-  ) {
-
-    const textarea =
-      document.createElement(
-        'textarea'
+    saveTimeout =
+      setTimeout(
+        saveCurrentAnswers,
+        700
       );
 
-    textarea.placeholder =
-      'Ketik jawaban Anda di sini...';
+  }
 
-    const saved =
-      examAnswers[
-        String(
-          index + 1
-        )
-      ];
 
-    textarea.value =
-      saved ||
-      '';
+  /* =====================================================
+     PROGRESS
+     ===================================================== */
 
-    textarea.addEventListener(
-      'input',
-      function() {
+  function updateProgress() {
 
-        examAnswers[
-          String(
-            index + 1
-          )
-        ] =
-          textarea.value;
+    if (!questions.length) {
+
+      return;
+
+    }
+
+
+    let answered = 0;
+
+
+    questions.forEach(
+      function(q, index) {
+
+        const value =
+          answers[
+            String(index + 1)
+          ];
+
+
+        if (
+          value !== undefined &&
+          value !== null &&
+          String(value).trim() !== ''
+        ) {
+
+          answered++;
+
+        }
 
       }
     );
 
-    card.appendChild(
-      textarea
-    );
+
+    const percent =
+      Math.round(
+        (answered /
+          questions.length) *
+        100
+      );
+
+
+    $('progressBar').style.width =
+      percent + '%';
 
   }
 
 
-  /*
-   * ========================================================
-   * TIMER
-   * ========================================================
-   */
+  /* =====================================================
+     SIMPAN JAWABAN
+     ===================================================== */
+
+  function saveCurrentAnswers() {
+
+    if (
+      !currentSessionId ||
+      !currentEmail ||
+      isSubmitting
+    ) {
+
+      return;
+
+    }
+
+
+    google.script.run
+
+      .withFailureHandler(
+        function(error) {
+
+          /*
+           * Jangan mengganggu peserta.
+           * Jika gagal, jawaban lokal tetap berada
+           * di halaman selama sesi berjalan.
+           */
+
+          console.log(
+            'Gagal menyimpan:',
+            error
+          );
+
+        }
+      )
+
+      .saveAnswers(
+        currentSessionId,
+        currentEmail,
+        answers
+      );
+
+  }
+
+
+  /* =====================================================
+     TIMER
+     ===================================================== */
 
   function startTimer() {
 
-    stopTimer();
+    if (timerInterval) {
+
+      clearInterval(
+        timerInterval
+      );
+
+    }
+
 
     updateTimer();
+
 
     timerInterval =
       setInterval(
@@ -1987,29 +1417,7 @@
   }
 
 
-  function stopTimer() {
-
-    if (
-      timerInterval
-    ) {
-
-      clearInterval(
-        timerInterval
-      );
-
-      timerInterval =
-        null;
-
-    }
-
-  }
-
-
   function updateTimer() {
-
-    if (!endTime) {
-      return;
-    }
 
     const remaining =
       Math.max(
@@ -2018,181 +1426,188 @@
         Date.now()
       );
 
+
     const totalSeconds =
       Math.floor(
         remaining / 1000
       );
+
 
     const minutes =
       Math.floor(
         totalSeconds / 60
       );
 
+
     const seconds =
       totalSeconds % 60;
 
-    const timer =
-      document.getElementById(
-        'timer'
-      );
 
-    timer.textContent =
-      String(
-        minutes
-      ).padStart(
-        2,
-        '0'
-      ) +
+    $('timer').innerText =
+      String(minutes)
+        .padStart(2, '0') +
       ':' +
-      String(
-        seconds
-      ).padStart(
-        2,
-        '0'
-      );
+      String(seconds)
+        .padStart(2, '0');
 
-    timer.classList.remove(
-      'warning',
-      'danger'
-    );
 
     if (
-      totalSeconds <= 300
+      remaining <= 5 * 60 * 1000 &&
+      remaining > 60 * 1000
     ) {
 
-      timer.classList.add(
-        'danger'
-      );
-
-    }
-    else if (
-      totalSeconds <= 600
-    ) {
-
-      timer.classList.add(
-        'warning'
-      );
+      $('timer')
+        .classList.add(
+          'warningTimer'
+        );
 
     }
 
+
     if (
-      remaining <= 0
+      remaining <= 60 * 1000
     ) {
 
-      stopTimer();
+      $('timer')
+        .classList.remove(
+          'warningTimer'
+        );
 
-      stopAutosave();
-
-      autoSubmitExam();
+      $('timer')
+        .classList.add(
+          'dangerTimer'
+        );
 
     }
 
-  }
 
-
-  /*
-   * ========================================================
-   * AUTO SAVE
-   * ========================================================
-   */
-
-  function startAutosave() {
-
-    stopAutosave();
-
-    autosaveInterval =
-      setInterval(
-        function() {
-
-          if (
-            !currentSessionId ||
-            !currentEmail ||
-            submitting
-          ) {
-
-            return;
-
-          }
-
-          saveAnswersToServer(
-            false
-          );
-
-        },
-        10000
-      );
-
-  }
-
-
-  function stopAutosave() {
-
-    if (
-      autosaveInterval
-    ) {
+    if (remaining <= 0) {
 
       clearInterval(
-        autosaveInterval
+        timerInterval
       );
 
-      autosaveInterval =
-        null;
+      autoSubmitTest();
 
     }
 
   }
 
 
-  function saveAnswersToServer(
-    showResult
-  ) {
+  /* =====================================================
+     AUTO SUBMIT
+     ===================================================== */
 
-    if (
-      !currentSessionId ||
-      !currentEmail
-    ) {
+  function autoSubmitTest() {
+
+    if (isSubmitting) {
 
       return;
 
     }
 
+
+    isSubmitting = true;
+
+    $('submitButton').disabled =
+      true;
+
+
+    $('submitButton').innerText =
+      'WAKTU HABIS - MENGIRIM...';
+
+
     google.script.run
 
       .withSuccessHandler(
-        function(result) {
-
-          if (
-            showResult &&
-            result
-          ) {
-
-            showMessage(
-              'examMessage',
-              'Jawaban berhasil disimpan.',
-              'success'
-            );
-
-          }
-
-        }
+        finishExam
       )
 
       .withFailureHandler(
         function(error) {
 
-          if (
-            showResult
-          ) {
+          isSubmitting = false;
 
-            showMessage(
-              'examMessage',
-              getErrorMessage(
-                error
-              ),
-              'error'
-            );
+          /*
+           * Jika server menolak karena sesi sudah
+           * expired, tetap tampilkan selesai.
+           */
 
-          }
+          finishExam({
+            success: true,
+            autoSubmit: true
+          });
+
+        }
+      )
+
+      .submitExam(
+        currentSessionId,
+        currentEmail,
+        answers
+      );
+
+  }
+
+
+  /* =====================================================
+     SUBMIT MANUAL
+     ===================================================== */
+
+  function submitTest() {
+
+    if (isSubmitting) {
+
+      return;
+
+    }
+
+
+    const confirmed =
+      confirm(
+        'Yakin ingin mengirim jawaban? Setelah dikirim, tes tidak dapat diulang.'
+      );
+
+
+    if (!confirmed) {
+
+      return;
+
+    }
+
+
+    isSubmitting = true;
+
+    $('submitButton').disabled =
+      true;
+
+    $('submitButton').innerText =
+      'MENGIRIM...';
+
+
+    /*
+     * Simpan jawaban terakhir dulu
+     */
+
+    google.script.run
+
+      .withSuccessHandler(
+        function() {
+
+          sendFinalSubmit();
+
+        }
+      )
+
+      .withFailureHandler(
+        function() {
+
+          /*
+           * Tetap kirim final karena submitExam
+           * juga menyimpan answers.
+           */
+
+          sendFinalSubmit();
 
         }
       )
@@ -2200,180 +1615,40 @@
       .saveAnswers(
         currentSessionId,
         currentEmail,
-        examAnswers
+        answers
       );
 
   }
 
 
-  /*
-   * ========================================================
-   * SUBMIT MANUAL
-   * ========================================================
-   */
+  /* =====================================================
+     KIRIM FINAL
+     ===================================================== */
 
-  function submitExamNow() {
-
-    if (submitting) {
-      return;
-    }
-
-    const confirmed =
-      window.confirm(
-        'Apakah Anda yakin ingin mengirim jawaban? Setelah dikirim, ujian tidak dapat diulang.'
-      );
-
-    if (!confirmed) {
-      return;
-    }
-
-    submitExamToServer(
-      false
-    );
-
-  }
-
-
-  /*
-   * ========================================================
-   * AUTO SUBMIT
-   * ========================================================
-   */
-
-  function autoSubmitExam() {
-
-    if (submitting) {
-      return;
-    }
-
-    submitExamToServer(
-      true
-    );
-
-  }
-
-
-  /*
-   * ========================================================
-   * SUBMIT KE SERVER
-   * ========================================================
-   */
-
-  function submitExamToServer(
-    automatic
-  ) {
-
-    if (
-      !currentSessionId ||
-      !currentEmail
-    ) {
-
-      return;
-
-    }
-
-    submitting =
-      true;
-
-    stopTimer();
-
-    stopAutosave();
-
-    const button =
-      document.getElementById(
-        'submitButton'
-      );
-
-    if (button) {
-
-      button.disabled =
-        true;
-
-      button.textContent =
-        automatic
-          ? 'WAKTU HABIS...'
-          : 'MENGIRIM...';
-
-    }
-
-    showMessage(
-      'examMessage',
-      automatic
-        ? 'Waktu habis. Jawaban sedang dikirim otomatis...'
-        : 'Jawaban sedang dikirim...',
-      automatic
-        ? 'warning'
-        : 'info'
-    );
-
+  function sendFinalSubmit() {
 
     google.script.run
 
       .withSuccessHandler(
-        function(result) {
-
-          submitting =
-            false;
-
-          if (
-            result &&
-            result.success
-          ) {
-
-            showSuccess(
-              result.message ||
-              (
-                automatic
-                  ? 'Waktu habis. Jawaban otomatis telah dikirim.'
-                  : 'Jawaban Anda telah diterima.'
-              )
-            );
-
-            return;
-
-          }
-
-          if (button) {
-
-            button.disabled =
-              false;
-
-            button.textContent =
-              'KIRIM JAWABAN';
-
-          }
-
-          showMessage(
-            'examMessage',
-            'Jawaban belum berhasil dikirim.',
-            'error'
-          );
-
-        }
+        finishExam
       )
 
       .withFailureHandler(
         function(error) {
 
-          submitting =
+          isSubmitting = false;
+
+          $('submitButton').disabled =
             false;
 
-          if (button) {
+          $('submitButton').innerText =
+            'KIRIM JAWABAN';
 
-            button.disabled =
-              false;
 
-            button.textContent =
-              'KIRIM JAWABAN';
-
-          }
-
-          showMessage(
+          showError(
             'examMessage',
-            getErrorMessage(
-              error
-            ),
-            'error'
+            error.message ||
+            'Gagal mengirim jawaban.'
           );
 
         }
@@ -2382,96 +1657,120 @@
       .submitExam(
         currentSessionId,
         currentEmail,
-        examAnswers
+        answers
       );
 
   }
 
 
-  /*
-   * ========================================================
-   * VALIDASI EMAIL
-   * ========================================================
-   */
+  /* =====================================================
+     SELESAI
+     ===================================================== */
 
-  function isValidEmail(
-    email
-  ) {
+  function finishExam(data) {
 
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-      .test(email);
+    if (timerInterval) {
 
-  }
-
-
-  /*
-   * ========================================================
-   * ERROR MESSAGE
-   * ========================================================
-   */
-
-  function getErrorMessage(
-    error
-  ) {
-
-    if (!error) {
-
-      return 'Terjadi kesalahan.';
+      clearInterval(
+        timerInterval
+      );
 
     }
 
-    if (
-      typeof error === 'string'
-    ) {
 
-      return error;
+    isSubmitting = false;
 
-    }
 
-    if (
-      error.message
-    ) {
-
-      return error.message;
-
-    }
-
-    return String(
-      error
+    showOnly(
+      'finishedPage'
     );
 
+
+    if (
+      data &&
+      data.autoSubmit
+    ) {
+
+      $('finishedMessage').innerHTML =
+        'Waktu ujian telah habis. ' +
+        'Jawaban Anda otomatis telah dikirim.';
+
+    } else {
+
+      $('finishedMessage').innerHTML =
+        'Jawaban Anda telah berhasil dikirim. ' +
+        'Terima kasih telah mengikuti tes.';
+
+    }
+
+
+    /*
+     * Hapus data sesi dari browser
+     */
+
+    currentSessionId = '';
+
+    questions = [];
+
+    answers = {};
+
+    endTime = 0;
+
   }
 
 
-  /*
-   * ========================================================
-   * CEGAH REFRESH / MENUTUP SAAT UJIAN
-   * ========================================================
-   */
+  /* =====================================================
+     CEK OTOMATIS SAAT HALAMAN DIBUKA
+     ===================================================== */
 
   window.addEventListener(
-    'beforeunload',
+    'load',
+    function() {
+
+      /*
+       * Tidak menggunakan login Google.
+       * Peserta cukup memasukkan email dan nama.
+       */
+
+      $('email').focus();
+
+    }
+  );
+
+
+  /* =====================================================
+     ENTER = PERIKSA DATA
+     ===================================================== */
+
+  $('email').addEventListener(
+    'keydown',
     function(event) {
 
       if (
-        currentSessionId &&
-        !submitting &&
-        !document
-          .getElementById(
-            'examCard'
-          )
-          .classList
-          .contains('hidden')
+        event.key === 'Enter'
       ) {
-
-        saveAnswersToServer(
-          false
-        );
 
         event.preventDefault();
 
-        event.returnValue =
-          '';
+        checkParticipant();
+
+      }
+
+    }
+  );
+
+
+  $('name').addEventListener(
+    'keydown',
+    function(event) {
+
+      if (
+        event.key === 'Enter'
+      ) {
+
+        event.preventDefault();
+
+        checkParticipant();
 
       }
 
