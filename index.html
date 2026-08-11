@@ -1,0 +1,2223 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Recruitment Test</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f4f6;
+      color: #111827;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 25px;
+      margin-top: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.08);
+    }
+
+    h1,
+    h2 {
+      margin-top: 0;
+    }
+
+    .subtitle {
+      color: #6b7280;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-top: 16px;
+      margin-bottom: 7px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 13px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #2563eb;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 20px;
+      border: 0;
+      border-radius: 8px;
+      background: #2563eb;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      opacity: .9;
+    }
+
+    button:disabled {
+      opacity: .6;
+      cursor: not-allowed;
+    }
+
+    .success {
+      background: #16a34a;
+    }
+
+    .warning {
+      padding: 15px;
+      border-radius: 8px;
+      background: #fff7ed;
+      border: 1px solid #fed7aa;
+      color: #9a3412;
+      margin: 15px 0;
+    }
+
+    .info {
+      padding: 15px;
+      border-radius: 8px;
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      color: #1d4ed8;
+      margin: 15px 0;
+    }
+
+    .error {
+      padding: 15px;
+      border-radius: 8px;
+      background: #fef2f2;
+      border: 1px solid #fecaca;
+      color: #b91c1c;
+      margin-top: 15px;
+    }
+
+    .participant {
+      background: #f9fafb;
+      border-radius: 8px;
+      padding: 15px;
+      margin: 15px 0;
+      line-height: 1.8;
+    }
+
+    .rules {
+      background: #f9fafb;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      line-height: 1.7;
+    }
+
+    .rules ol {
+      margin-bottom: 0;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
+
+    .timer {
+      text-align: center;
+      font-size: 34px;
+      font-weight: bold;
+      margin-bottom: 15px;
+    }
+
+    .warningTimer {
+      color: #d97706;
+    }
+
+    .dangerTimer {
+      color: #dc2626;
+    }
+
+    .progress {
+      width: 100%;
+      height: 10px;
+      background: #e5e7eb;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+
+    .progressBar {
+      height: 100%;
+      width: 0%;
+      background: #2563eb;
+      transition: width .2s;
+    }
+
+    .question {
+      padding: 20px;
+      margin-bottom: 18px;
+      border: 1px solid #e5e7eb;
+      border-radius: 10px;
+      background: #ffffff;
+    }
+
+    .question-number {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .question-text {
+      font-size: 17px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    .choice {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .choice:hover {
+      background: #f3f4f6;
+    }
+
+    .choice input {
+      width: auto;
+      margin-top: 4px;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 20px;
+      color: #6b7280;
+    }
+
+    .small {
+      color: #6b7280;
+      font-size: 13px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- =====================================================
+       HOME
+       ===================================================== -->
+
+  <div id="homePage" class="card page active">
+
+    <h1>
+      Recruitment Test
+    </h1>
+
+    <div class="subtitle">
+      Silakan isi data untuk mengikuti tes.
+    </div>
+
+    <label for="email">
+      Email
+    </label>
+
+    <input
+      type="email"
+      id="email"
+      placeholder="Masukkan email"
+      autocomplete="email"
+    >
+
+    <label for="name">
+      Nama Lengkap
+    </label>
+
+    <input
+      type="text"
+      id="name"
+      placeholder="Masukkan nama lengkap"
+      autocomplete="name"
+    >
+
+    <div class="rules">
+
+      <strong>
+        Tata Tertib Tes
+      </strong>
+
+      <ol>
+
+        <li>
+          Gunakan email yang didaftarkan.
+        </li>
+
+        <li>
+          Isi nama lengkap dengan benar.
+        </li>
+
+        <li>
+          Kerjakan tes secara mandiri.
+        </li>
+
+        <li>
+          Waktu pengerjaan adalah 30 menit.
+        </li>
+
+        <li>
+          Jawaban tersimpan selama tes berlangsung.
+        </li>
+
+        <li>
+          Setelah waktu habis, tes otomatis dikirim.
+        </li>
+
+        <li>
+          Setelah tes dikirim, peserta tidak dapat mengulang.
+        </li>
+
+      </ol>
+
+    </div>
+
+    <button
+      id="checkButton"
+      onclick="checkParticipant()">
+
+      PERIKSA DATA
+
+    </button>
+
+    <div id="homeMessage"></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       WAITING
+       ===================================================== -->
+
+  <div id="waitingPage" class="card page">
+
+    <h2>
+      Menunggu Verifikasi
+    </h2>
+
+    <div class="warning">
+
+      Data Anda sudah terdaftar.
+
+      <br><br>
+
+      Silakan menunggu admin memberikan akses untuk
+      memulai tes.
+
+    </div>
+
+    <div
+      id="waitingInfo"
+      class="participant">
+    </div>
+
+    <button
+      onclick="checkStatusAgain()">
+
+      PERIKSA STATUS LAGI
+
+    </button>
+
+    <button
+      onclick="backHome()">
+
+      KEMBALI
+
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       APPROVED
+       ===================================================== -->
+
+  <div id="approvedPage" class="card page">
+
+    <h2>
+      Akses Disetujui
+    </h2>
+
+    <div class="info">
+
+      Akses tes Anda sudah disetujui oleh admin.
+
+    </div>
+
+    <div
+      id="approvedInfo"
+      class="participant">
+    </div>
+
+    <button
+      id="startButton"
+      onclick="startTest()">
+
+      MULAI TES
+
+    </button>
+
+  </div>
+
+
+  <!-- =====================================================
+       EXAM
+       ===================================================== -->
+
+  <div id="examPage" class="card page">
+
+    <div
+      id="timer"
+      class="timer">
+
+      30:00
+
+    </div>
+
+    <div
+      id="examParticipant"
+      class="participant">
+    </div>
+
+    <div class="progress">
+
+      <div
+        id="progressBar"
+        class="progressBar">
+      </div>
+
+    </div>
+
+    <div
+      id="questionsContainer">
+    </div>
+
+    <button
+      id="submitButton"
+      class="success"
+      onclick="submitTest()">
+
+      KIRIM JAWABAN
+
+    </button>
+
+    <div id="examMessage"></div>
+
+  </div>
+
+
+  <!-- =====================================================
+       FINISHED
+       ===================================================== -->
+
+  <div id="finishedPage" class="card page">
+
+    <h2>
+      Ujian Selesai
+    </h2>
+
+    <div
+      id="finishedMessage"
+      class="info">
+
+      Jawaban Anda telah diterima.
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/* ==========================================================
+   WEB APP GOOGLE APPS SCRIPT
+   ========================================================== */
+
+const WEB_APP_URL =
+  'https://script.google.com/macros/s/AKfycbyoiNyEly9sFcfP28JiDSpBt7eQMW2wXkdz3mA6tBjuOj3UBTTXt6JkQoBijFMly1oo/exec';
+
+
+/* ==========================================================
+   GLOBAL
+   ========================================================== */
+
+let currentEmail = '';
+
+let currentName = '';
+
+let currentSessionId = '';
+
+let questions = [];
+
+let answers = {};
+
+let endTime = 0;
+
+let timerInterval = null;
+
+let saveTimeout = null;
+
+let isSubmitting = false;
+
+
+/* ==========================================================
+   ELEMENT
+   ========================================================== */
+
+function $(id) {
+
+  return document.getElementById(id);
+
+}
+
+
+/* ==========================================================
+   PAGE
+   ========================================================== */
+
+function showOnly(pageId) {
+
+  document
+    .querySelectorAll('.page')
+    .forEach(function(page) {
+
+      page.classList.remove('active');
+
+    });
+
+  $(pageId)
+    .classList
+    .add('active');
+
+}
+
+
+/* ==========================================================
+   ERROR
+   ========================================================== */
+
+function showError(elementId, message) {
+
+  $(elementId).innerHTML =
+    '<div class="error">' +
+    escapeHtml(message) +
+    '</div>';
+
+}
+
+
+/* ==========================================================
+   ESCAPE HTML
+   ========================================================== */
+
+function escapeHtml(value) {
+
+  return String(value || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+
+}
+
+
+/* ==========================================================
+   API GET
+   ========================================================== */
+
+async function apiGet(action, params) {
+
+  const url =
+    new URL(WEB_APP_URL);
+
+  url.searchParams.set(
+    'action',
+    action
+  );
+
+  Object.keys(params || {})
+    .forEach(function(key) {
+
+      url.searchParams.set(
+        key,
+        params[key]
+      );
+
+    });
+
+  const response =
+    await fetch(
+      url.toString(),
+      {
+        method: 'GET',
+        redirect: 'follow',
+        cache: 'no-store'
+      }
+    );
+
+  if (!response.ok) {
+
+    throw new Error(
+      'HTTP Error ' +
+      response.status
+    );
+
+  }
+
+  const text =
+    await response.text();
+
+  let data;
+
+  try {
+
+    data =
+      JSON.parse(text);
+
+  } catch (error) {
+
+    console.log(
+      'Response Web App:',
+      text
+    );
+
+    throw new Error(
+      'Web App tidak mengembalikan JSON. ' +
+      'Pastikan Code.gs sudah menggunakan API doGet/doPost.'
+    );
+
+  }
+
+  if (
+    data &&
+    data.success === false &&
+    data.message
+  ) {
+
+    throw new Error(
+      data.message
+    );
+
+  }
+
+  return data;
+
+}
+
+
+/* ==========================================================
+   API POST
+   ========================================================== */
+
+async function apiPost(action, data) {
+
+  const url =
+    new URL(WEB_APP_URL);
+
+  url.searchParams.set(
+    'action',
+    action
+  );
+
+  /*
+   * Mode no-cors TIDAK digunakan.
+   * Web App harus mengizinkan request dari GitHub.
+   */
+
+  const response =
+    await fetch(
+      url.toString(),
+      {
+        method: 'POST',
+
+        headers: {
+          'Content-Type':
+            'text/plain;charset=utf-8'
+        },
+
+        body:
+          JSON.stringify(
+            data || {}
+          ),
+
+        redirect: 'follow',
+
+        cache: 'no-store'
+      }
+    );
+
+  if (!response.ok) {
+
+    throw new Error(
+      'HTTP Error ' +
+      response.status
+    );
+
+  }
+
+  const text =
+    await response.text();
+
+  let result;
+
+  try {
+
+    result =
+      JSON.parse(text);
+
+  } catch (error) {
+
+    console.log(
+      'Response Web App:',
+      text
+    );
+
+    throw new Error(
+      'Web App tidak mengembalikan JSON.'
+    );
+
+  }
+
+  if (
+    result &&
+    result.success === false &&
+    result.message
+  ) {
+
+    throw new Error(
+      result.message
+    );
+
+  }
+
+  return result;
+
+}
+
+
+/* ==========================================================
+   CHECK PARTICIPANT
+   ========================================================== */
+
+async function checkParticipant() {
+
+  const email =
+    String(
+      $('email').value || ''
+    )
+    .trim()
+    .toLowerCase();
+
+  const name =
+    String(
+      $('name').value || ''
+    )
+    .trim();
+
+  $('homeMessage').innerHTML = '';
+
+  if (!email) {
+
+    showError(
+      'homeMessage',
+      'Email wajib diisi.'
+    );
+
+    return;
+
+  }
+
+  if (!isValidEmail(email)) {
+
+    showError(
+      'homeMessage',
+      'Format email tidak valid.'
+    );
+
+    return;
+
+  }
+
+  if (!name) {
+
+    showError(
+      'homeMessage',
+      'Nama lengkap wajib diisi.'
+    );
+
+    return;
+
+  }
+
+  const button =
+    $('checkButton');
+
+  button.disabled = true;
+
+  button.innerText =
+    'MEMERIKSA...';
+
+  try {
+
+    /*
+     * Pertama cek status email.
+     */
+
+    const status =
+      await apiGet(
+        'getParticipantStatus',
+        {
+          email: email
+        }
+      );
+
+    currentEmail =
+      email;
+
+    currentName =
+      name;
+
+
+    /*
+     * SUDAH PERNAH TES
+     */
+
+    if (
+      status &&
+      status.hasHistory
+    ) {
+
+      showError(
+        'homeMessage',
+        status.message ||
+        'Email ini sudah memiliki riwayat tes.'
+      );
+
+      return;
+
+    }
+
+
+    /*
+     * BELUM TERDAFTAR
+     *
+     * Otomatis register.
+     */
+
+    if (
+      !status.registered
+    ) {
+
+      const registered =
+        await apiPost(
+          'registerParticipant',
+          {
+            email: email,
+            name: name
+          }
+        );
+
+      if (
+        registered &&
+        registered.hasHistory
+      ) {
+
+        showError(
+          'homeMessage',
+          registered.message
+        );
+
+        return;
+
+      }
+
+      currentName =
+        registered.nama ||
+        name;
+
+      showWaiting();
+
+      return;
+
+    }
+
+
+    /*
+     * SUDAH TERDAFTAR
+     * BELUM ACC
+     */
+
+    if (
+      !status.approved
+    ) {
+
+      currentName =
+        status.nama ||
+        name;
+
+      showWaiting();
+
+      return;
+
+    }
+
+
+    /*
+     * SUDAH ACC
+     */
+
+    showApproved(
+      status
+    );
+
+  } catch (error) {
+
+    console.error(error);
+
+    showError(
+      'homeMessage',
+      'Gagal terhubung ke Web App: ' +
+      error.message
+    );
+
+  } finally {
+
+    button.disabled = false;
+
+    button.innerText =
+      'PERIKSA DATA';
+
+  }
+
+}
+
+
+/* ==========================================================
+   WAITING
+   ========================================================== */
+
+function showWaiting() {
+
+  $('waitingInfo').innerHTML =
+
+    '<strong>Email:</strong> ' +
+    escapeHtml(
+      currentEmail
+    ) +
+
+    '<br>' +
+
+    '<strong>Nama:</strong> ' +
+    escapeHtml(
+      currentName
+    );
+
+  showOnly(
+    'waitingPage'
+  );
+
+}
+
+
+/* ==========================================================
+   CHECK STATUS AGAIN
+   ========================================================== */
+
+async function checkStatusAgain() {
+
+  const button =
+    document.querySelector(
+      '#waitingPage button'
+    );
+
+  try {
+
+    button.disabled = true;
+
+    button.innerText =
+      'MEMERIKSA...';
+
+    const status =
+      await apiGet(
+        'getParticipantStatus',
+        {
+          email:
+            currentEmail
+        }
+      );
+
+
+    /*
+     * RIWAYAT
+     */
+
+    if (
+      status.hasHistory
+    ) {
+
+      showOnly(
+        'finishedPage'
+      );
+
+      $('finishedMessage')
+        .innerHTML =
+          escapeHtml(
+            status.message ||
+            'Tes sudah selesai.'
+          );
+
+      return;
+
+    }
+
+
+    /*
+     * SUDAH ACC
+     */
+
+    if (
+      status.approved
+    ) {
+
+      showApproved(
+        status
+      );
+
+      return;
+
+    }
+
+
+    /*
+     * MASIH MENUNGGU
+     */
+
+    $('waitingInfo').innerHTML =
+
+      '<strong>Email:</strong> ' +
+      escapeHtml(
+        currentEmail
+      ) +
+
+      '<br>' +
+
+      '<strong>Nama:</strong> ' +
+      escapeHtml(
+        status.nama ||
+        currentName
+      ) +
+
+      '<br><br>' +
+
+      '<span class="small">' +
+      'Status: masih menunggu persetujuan admin.' +
+      '</span>';
+
+  } catch (error) {
+
+    showError(
+      'waitingInfo',
+      error.message
+    );
+
+  } finally {
+
+    button.disabled = false;
+
+    button.innerText =
+      'PERIKSA STATUS LAGI';
+
+  }
+
+}
+
+
+/* ==========================================================
+   APPROVED
+   ========================================================== */
+
+function showApproved(status) {
+
+  currentEmail =
+    status.email ||
+    currentEmail;
+
+  currentName =
+    status.nama ||
+    currentName;
+
+  $('approvedInfo').innerHTML =
+
+    '<strong>Email:</strong> ' +
+    escapeHtml(
+      currentEmail
+    ) +
+
+    '<br>' +
+
+    '<strong>Nama:</strong> ' +
+    escapeHtml(
+      currentName
+    );
+
+  showOnly(
+    'approvedPage'
+  );
+
+}
+
+
+/* ==========================================================
+   START TEST
+   ========================================================== */
+
+async function startTest() {
+
+  if (
+    !currentEmail
+  ) {
+
+    showOnly(
+      'homePage'
+    );
+
+    return;
+
+  }
+
+  const button =
+    $('startButton');
+
+  button.disabled = true;
+
+  button.innerText =
+    'MEMUAT TES...';
+
+  try {
+
+    const data =
+      await apiPost(
+        'startExam',
+        {
+          email:
+            currentEmail
+        }
+      );
+
+
+    /*
+     * MASIH MENUNGGU
+     */
+
+    if (
+      data.waiting
+    ) {
+
+      showWaiting();
+
+      return;
+
+    }
+
+
+    /*
+     * SESSION
+     */
+
+    if (
+      !data.sessionId
+    ) {
+
+      throw new Error(
+        'Session ujian tidak ditemukan.'
+      );
+
+    }
+
+    currentSessionId =
+      data.sessionId;
+
+    currentEmail =
+      data.email ||
+      currentEmail;
+
+    currentName =
+      data.nama ||
+      currentName;
+
+    questions =
+      data.questions ||
+      [];
+
+    answers =
+      data.answers ||
+      {};
+
+    endTime =
+      Number(
+        data.endTime
+      );
+
+    if (
+      !questions.length
+    ) {
+
+      throw new Error(
+        'Tidak ada soal aktif.'
+      );
+
+    }
+
+    showExam();
+
+  } catch (error) {
+
+    showError(
+      'approvedInfo',
+      error.message
+    );
+
+  } finally {
+
+    button.disabled = false;
+
+    button.innerText =
+      'MULAI TES';
+
+  }
+
+}
+
+
+/* ==========================================================
+   SHOW EXAM
+   ========================================================== */
+
+function showExam() {
+
+  $('examParticipant').innerHTML =
+
+    '<strong>Nama:</strong> ' +
+    escapeHtml(
+      currentName
+    ) +
+
+    '<br>' +
+
+    '<strong>Email:</strong> ' +
+    escapeHtml(
+      currentEmail
+    );
+
+  renderQuestions();
+
+  updateProgress();
+
+  showOnly(
+    'examPage'
+  );
+
+  startTimer();
+
+}
+
+
+/* ==========================================================
+   RENDER QUESTIONS
+   ========================================================== */
+
+function renderQuestions() {
+
+  const container =
+    $('questionsContainer');
+
+  container.innerHTML = '';
+
+  questions.forEach(
+    function(q, index) {
+
+      const number =
+        index + 1;
+
+      const box =
+        document.createElement(
+          'div'
+        );
+
+      box.className =
+        'question';
+
+
+      let html =
+
+        '<div class="question-number">' +
+        'Soal ' +
+        number +
+        '</div>' +
+
+        '<div class="question-text">' +
+        escapeHtml(
+          q.question
+        ) +
+        '</div>';
+
+
+      const type =
+        String(
+          q.type ||
+          'TEXT'
+        )
+        .toUpperCase();
+
+
+      /*
+       * PILIHAN
+       */
+
+      if (
+        q.choices &&
+        q.choices.length
+      ) {
+
+        if (
+          type.includes('CHECK') ||
+          type.includes('MULTI')
+        ) {
+
+          q.choices.forEach(
+            function(choice) {
+
+              const checked =
+                isAnswerChecked(
+                  number,
+                  choice
+                );
+
+              html +=
+
+                '<label class="choice">' +
+
+                '<input ' +
+
+                'type="checkbox" ' +
+
+                (checked
+                  ? 'checked '
+                  : '') +
+
+                'onchange="multiChoiceChanged(' +
+
+                number +
+
+                ', this)"' +
+
+                '>' +
+
+                '<span>' +
+
+                escapeHtml(
+                  choice
+                ) +
+
+                '</span>' +
+
+                '</label>';
+
+            }
+          );
+
+        } else {
+
+          q.choices.forEach(
+            function(choice) {
+
+              const checked =
+                String(
+                  answers[
+                    String(number)
+                  ] ||
+                  ''
+                ) ===
+                String(choice);
+
+              html +=
+
+                '<label class="choice">' +
+
+                '<input ' +
+
+                'type="radio" ' +
+
+                'name="q' +
+                number +
+                '" ' +
+
+                'value="' +
+                escapeHtml(
+                  choice
+                ) +
+                '" ' +
+
+                (checked
+                  ? 'checked '
+                  : '') +
+
+                'onchange="answerChanged(' +
+
+                number +
+
+                ', this.value)"' +
+
+                '>' +
+
+                '<span>' +
+
+                escapeHtml(
+                  choice
+                ) +
+
+                '</span>' +
+
+                '</label>';
+
+            }
+          );
+
+        }
+
+      } else {
+
+        /*
+         * TEXT / ESSAY
+         */
+
+        const value =
+          answers[
+            String(number)
+          ] ||
+          '';
+
+        html +=
+
+          '<textarea ' +
+
+          'rows="5" ' +
+
+          'placeholder="Tulis jawaban Anda..." ' +
+
+          'oninput="answerChanged(' +
+
+          number +
+
+          ', this.value)"' +
+
+          '>' +
+
+          escapeHtml(
+            value
+          ) +
+
+          '</textarea>';
+
+      }
+
+
+      box.innerHTML =
+        html;
+
+      container.appendChild(
+        box
+      );
+
+    }
+  );
+
+}
+
+
+/* ==========================================================
+   MULTI CHOICE
+   ========================================================== */
+
+function multiChoiceChanged(
+  number,
+  checkbox
+) {
+
+  let values =
+    Array.isArray(
+      answers[
+        String(number)
+      ]
+    )
+      ? answers[
+          String(number)
+        ]
+      : [];
+
+
+  const value =
+    checkbox.parentElement
+      .querySelector(
+        'span'
+      )
+      .innerText;
+
+
+  if (
+    checkbox.checked
+  ) {
+
+    if (
+      !values.includes(
+        value
+      )
+    ) {
+
+      values.push(
+        value
+      );
+
+    }
+
+  } else {
+
+    values =
+      values.filter(
+        function(item) {
+
+          return item !==
+            value;
+
+        }
+      );
+
+  }
+
+
+  answers[
+    String(number)
+  ] =
+    values;
+
+  updateProgress();
+
+  scheduleSave();
+
+}
+
+
+/* ==========================================================
+   CHECK MULTI
+   ========================================================== */
+
+function isAnswerChecked(
+  number,
+  value
+) {
+
+  const current =
+    answers[
+      String(number)
+    ];
+
+  if (
+    !Array.isArray(
+      current
+    )
+  ) {
+
+    return false;
+
+  }
+
+  return current.includes(
+    value
+  );
+
+}
+
+
+/* ==========================================================
+   ANSWER CHANGED
+   ========================================================== */
+
+function answerChanged(
+  number,
+  value
+) {
+
+  answers[
+    String(number)
+  ] =
+    value;
+
+  updateProgress();
+
+  scheduleSave();
+
+}
+
+
+/* ==========================================================
+   SCHEDULE SAVE
+   ========================================================== */
+
+function scheduleSave() {
+
+  if (
+    saveTimeout
+  ) {
+
+    clearTimeout(
+      saveTimeout
+    );
+
+  }
+
+  saveTimeout =
+    setTimeout(
+      saveCurrentAnswers,
+      700
+    );
+
+}
+
+
+/* ==========================================================
+   PROGRESS
+   ========================================================== */
+
+function updateProgress() {
+
+  if (
+    !questions.length
+  ) {
+
+    return;
+
+  }
+
+  let answered =
+    0;
+
+  questions.forEach(
+    function(q, index) {
+
+      const value =
+        answers[
+          String(
+            index + 1
+          )
+        ];
+
+
+      if (
+        value !== undefined &&
+        value !== null &&
+        (
+          Array.isArray(value)
+            ? value.length > 0
+            : String(
+                value
+              ).trim() !== ''
+        )
+      ) {
+
+        answered++;
+
+      }
+
+    }
+  );
+
+
+  const percent =
+    Math.round(
+      (
+        answered /
+        questions.length
+      ) *
+      100
+    );
+
+
+  $('progressBar')
+    .style
+    .width =
+      percent +
+      '%';
+
+}
+
+
+/* ==========================================================
+   SAVE ANSWERS
+   ========================================================== */
+
+async function saveCurrentAnswers() {
+
+  if (
+    !currentSessionId ||
+    !currentEmail ||
+    isSubmitting
+  ) {
+
+    return;
+
+  }
+
+  try {
+
+    await apiPost(
+      'saveAnswers',
+      {
+        sessionId:
+          currentSessionId,
+
+        email:
+          currentEmail,
+
+        answers:
+          answers
+      }
+    );
+
+  } catch (error) {
+
+    console.log(
+      'Gagal menyimpan:',
+      error
+    );
+
+  }
+
+}
+
+
+/* ==========================================================
+   TIMER
+   ========================================================== */
+
+function startTimer() {
+
+  if (
+    timerInterval
+  ) {
+
+    clearInterval(
+      timerInterval
+    );
+
+  }
+
+  updateTimer();
+
+  timerInterval =
+    setInterval(
+      updateTimer,
+      1000
+    );
+
+}
+
+
+/* ==========================================================
+   UPDATE TIMER
+   ========================================================== */
+
+function updateTimer() {
+
+  const remaining =
+    Math.max(
+      0,
+      endTime -
+      Date.now()
+    );
+
+
+  const totalSeconds =
+    Math.floor(
+      remaining /
+      1000
+    );
+
+
+  const minutes =
+    Math.floor(
+      totalSeconds /
+      60
+    );
+
+
+  const seconds =
+    totalSeconds %
+    60;
+
+
+  $('timer')
+    .innerText =
+
+      String(minutes)
+        .padStart(
+          2,
+          '0'
+        ) +
+
+      ':' +
+
+      String(seconds)
+        .padStart(
+          2,
+          '0'
+        );
+
+
+  if (
+    remaining <=
+    5 * 60 * 1000 &&
+    remaining >
+    60 * 1000
+  ) {
+
+    $('timer')
+      .classList
+      .add(
+        'warningTimer'
+      );
+
+  }
+
+
+  if (
+    remaining <=
+    60 * 1000
+  ) {
+
+    $('timer')
+      .classList
+      .remove(
+        'warningTimer'
+      );
+
+    $('timer')
+      .classList
+      .add(
+        'dangerTimer'
+      );
+
+  }
+
+
+  if (
+    remaining <= 0
+  ) {
+
+    clearInterval(
+      timerInterval
+    );
+
+    autoSubmitTest();
+
+  }
+
+}
+
+
+/* ==========================================================
+   AUTO SUBMIT
+   ========================================================== */
+
+async function autoSubmitTest() {
+
+  if (
+    isSubmitting
+  ) {
+
+    return;
+
+  }
+
+  isSubmitting =
+    true;
+
+  $('submitButton')
+    .disabled =
+      true;
+
+  $('submitButton')
+    .innerText =
+      'WAKTU HABIS - MENGIRIM...';
+
+
+  try {
+
+    const data =
+      await apiPost(
+        'submitExam',
+        {
+          sessionId:
+            currentSessionId,
+
+          email:
+            currentEmail,
+
+          answers:
+            answers
+        }
+      );
+
+    finishExam(
+      data
+    );
+
+  } catch (error) {
+
+    /*
+     * Jika waktu habis dan server
+     * sudah menerima submit, tetap
+     * tampilkan halaman selesai.
+     */
+
+    finishExam({
+      success: true,
+      autoSubmit: true
+    });
+
+  }
+
+}
+
+
+/* ==========================================================
+   MANUAL SUBMIT
+   ========================================================== */
+
+async function submitTest() {
+
+  if (
+    isSubmitting
+  ) {
+
+    return;
+
+  }
+
+
+  const confirmed =
+    confirm(
+      'Yakin ingin mengirim jawaban? ' +
+      'Setelah dikirim, tes tidak dapat diulang.'
+    );
+
+
+  if (
+    !confirmed
+  ) {
+
+    return;
+
+  }
+
+
+  isSubmitting =
+    true;
+
+  $('submitButton')
+    .disabled =
+      true;
+
+  $('submitButton')
+    .innerText =
+      'MENGIRIM...';
+
+
+  /*
+   * Simpan jawaban terakhir
+   * sebelum submit.
+   */
+
+  try {
+
+    await apiPost(
+      'saveAnswers',
+      {
+        sessionId:
+          currentSessionId,
+
+        email:
+          currentEmail,
+
+        answers:
+          answers
+      }
+    );
+
+  } catch (error) {
+
+    console.log(
+      error
+    );
+
+  }
+
+
+  try {
+
+    const data =
+      await apiPost(
+        'submitExam',
+        {
+          sessionId:
+            currentSessionId,
+
+          email:
+            currentEmail,
+
+          answers:
+            answers
+        }
+      );
+
+
+    finishExam(
+      data
+    );
+
+  } catch (error) {
+
+    isSubmitting =
+      false;
+
+    $('submitButton')
+      .disabled =
+        false;
+
+    $('submitButton')
+      .innerText =
+        'KIRIM JAWABAN';
+
+
+    showError(
+      'examMessage',
+      error.message ||
+      'Gagal mengirim jawaban.'
+    );
+
+  }
+
+}
+
+
+/* ==========================================================
+   FINISH EXAM
+   ========================================================== */
+
+function finishExam(
+  data
+) {
+
+  if (
+    timerInterval
+  ) {
+
+    clearInterval(
+      timerInterval
+    );
+
+  }
+
+
+  isSubmitting =
+    false;
+
+
+  showOnly(
+    'finishedPage'
+  );
+
+
+  if (
+    data &&
+    data.autoSubmit
+  ) {
+
+    $('finishedMessage')
+      .innerHTML =
+
+        'Waktu ujian telah habis. ' +
+        'Jawaban Anda otomatis telah dikirim.';
+
+  } else {
+
+    $('finishedMessage')
+      .innerHTML =
+
+        'Jawaban Anda telah berhasil dikirim. ' +
+        'Terima kasih telah mengikuti tes.';
+
+  }
+
+
+  currentSessionId =
+    '';
+
+  questions =
+    [];
+
+  answers =
+    {};
+
+  endTime =
+    0;
+
+}
+
+
+/* ==========================================================
+   BACK HOME
+   ========================================================== */
+
+function backHome() {
+
+  currentEmail =
+    '';
+
+  currentName =
+    '';
+
+  $('email').value =
+    '';
+
+  $('name').value =
+    '';
+
+  $('homeMessage')
+    .innerHTML =
+      '';
+
+  showOnly(
+    'homePage'
+  );
+
+}
+
+
+/* ==========================================================
+   EMAIL VALIDATION
+   ========================================================== */
+
+function isValidEmail(
+  email
+) {
+
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    .test(
+      email
+    );
+
+}
+
+
+/* ==========================================================
+   LOAD
+   ========================================================== */
+
+window.addEventListener(
+  'load',
+  function() {
+
+    $('email')
+      .focus();
+
+  }
+);
+
+
+/* ==========================================================
+   ENTER EMAIL
+   ========================================================== */
+
+$('email')
+  .addEventListener(
+    'keydown',
+    function(event) {
+
+      if (
+        event.key === 'Enter'
+      ) {
+
+        event.preventDefault();
+
+        checkParticipant();
+
+      }
+
+    }
+  );
+
+
+/* ==========================================================
+   ENTER NAME
+   ========================================================== */
+
+$('name')
+  .addEventListener(
+    'keydown',
+    function(event) {
+
+      if (
+        event.key === 'Enter'
+      ) {
+
+        event.preventDefault();
+
+        checkParticipant();
+
+      }
+
+    }
+  );
+
+</script>
+
+</body>
+</html>
