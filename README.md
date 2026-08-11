@@ -21,26 +21,28 @@ body {
 
   margin: 0;
 
+  padding: 20px;
+
+  background:
+    #f4f7fb;
+
   font-family:
     Arial,
     Helvetica,
     sans-serif;
 
-  background:
-    #f4f6f8;
-
   color:
-    #222;
-
+    #1f2937;
 }
 
 .container {
 
-  width:
-    min(760px, 94%);
+  width: 100%;
+
+  max-width: 800px;
 
   margin:
-    30px auto;
+    0 auto;
 
 }
 
@@ -53,11 +55,14 @@ body {
     16px;
 
   padding:
-    24px;
+    25px;
 
   box-shadow:
     0 5px 25px
     rgba(0,0,0,.08);
+
+  margin-bottom:
+    20px;
 
 }
 
@@ -72,7 +77,7 @@ h2 {
 .subtitle {
 
   color:
-    #666;
+    #6b7280;
 
   margin-bottom:
     25px;
@@ -95,7 +100,9 @@ label {
 
 }
 
-input {
+input,
+textarea,
+select {
 
   width:
     100%;
@@ -104,13 +111,23 @@ input {
     13px;
 
   border:
-    1px solid #ccc;
+    1px solid #d1d5db;
 
   border-radius:
-    8px;
+    9px;
 
   font-size:
     16px;
+
+}
+
+textarea {
+
+  min-height:
+    110px;
+
+  resize:
+    vertical;
 
 }
 
@@ -123,25 +140,25 @@ button {
     14px;
 
   margin-top:
-    20px;
+    18px;
 
   border:
-    0;
+    none;
 
   border-radius:
-    8px;
+    9px;
 
   background:
-    #1a73e8;
+    #2563eb;
 
   color:
     white;
 
-  font-weight:
-    bold;
-
   font-size:
     15px;
+
+  font-weight:
+    bold;
 
   cursor:
     pointer;
@@ -165,19 +182,83 @@ button:disabled {
 
 }
 
-.rules {
+.success {
 
   background:
-    #f8f9fa;
+    #16a34a;
+
+}
+
+.warning {
+
+  background:
+    #fff7ed;
+
+  border:
+    1px solid #fed7aa;
+
+  color:
+    #9a3412;
+
+  padding:
+    15px;
+
+  border-radius:
+    9px;
+
+}
+
+.info {
+
+  background:
+    #eff6ff;
+
+  border:
+    1px solid #bfdbfe;
+
+  color:
+    #1d4ed8;
+
+  padding:
+    15px;
+
+  border-radius:
+    9px;
+
+}
+
+.error {
+
+  background:
+    #fef2f2;
+
+  border:
+    1px solid #fecaca;
+
+  color:
+    #b91c1c;
+
+  padding:
+    15px;
+
+  border-radius:
+    9px;
+
+}
+
+.rules {
+
+  margin-top:
+    20px;
 
   padding:
     18px;
 
+  background:
+    #f9fafb;
+
   border-radius:
     10px;
-
-  margin-top:
-    20px;
 
 }
 
@@ -185,60 +266,6 @@ button:disabled {
 
   margin-bottom:
     8px;
-
-}
-
-.warning {
-
-  background:
-    #fff3cd;
-
-  border:
-    1px solid #ffe69c;
-
-  padding:
-    18px;
-
-  border-radius:
-    10px;
-
-}
-
-.info {
-
-  background:
-    #dff5e5;
-
-  border:
-    1px solid #a8dfb8;
-
-  padding:
-    18px;
-
-  border-radius:
-    10px;
-
-}
-
-.error {
-
-  background:
-    #fde2e2;
-
-  color:
-    #9b1c1c;
-
-  border:
-    1px solid #f5b5b5;
-
-  padding:
-    14px;
-
-  border-radius:
-    8px;
-
-  margin-top:
-    15px;
 
 }
 
@@ -251,10 +278,13 @@ button:disabled {
     14px;
 
   background:
-    #f5f7fa;
+    #f9fafb;
 
   border-radius:
-    8px;
+    9px;
+
+  line-height:
+    1.7;
 
 }
 
@@ -264,27 +294,39 @@ button:disabled {
     center;
 
   font-size:
-    34px;
+    32px;
 
   font-weight:
     bold;
 
+  padding:
+    12px;
+
   margin-bottom:
-    18px;
+    15px;
+
+  border-radius:
+    10px;
+
+  background:
+    #111827;
+
+  color:
+    white;
 
 }
 
 .warningTimer {
 
-  color:
-    #d98200;
+  background:
+    #d97706;
 
 }
 
 .dangerTimer {
 
-  color:
-    #d00000;
+  background:
+    #dc2626;
 
 }
 
@@ -300,13 +342,13 @@ button:disabled {
     #e5e7eb;
 
   border-radius:
-    10px;
+    20px;
 
   overflow:
     hidden;
 
-  margin:
-    20px 0;
+  margin-bottom:
+    25px;
 
 }
 
@@ -319,7 +361,7 @@ button:disabled {
     0%;
 
   background:
-    #1a73e8;
+    #2563eb;
 
   transition:
     width .2s;
@@ -328,14 +370,14 @@ button:disabled {
 
 .question {
 
-  padding:
-    18px;
-
   border:
-    1px solid #ddd;
+    1px solid #e5e7eb;
 
   border-radius:
     12px;
+
+  padding:
+    18px;
 
   margin-bottom:
     18px;
@@ -350,9 +392,12 @@ button:disabled {
   margin-bottom:
     15px;
 
+  line-height:
+    1.6;
+
 }
 
-.choice {
+.option {
 
   display:
     block;
@@ -361,55 +406,23 @@ button:disabled {
     10px;
 
   margin:
-    8px 0;
+    7px 0;
 
   background:
-    #f8f9fa;
+    #f9fafb;
 
   border-radius:
     8px;
 
 }
 
-.choice input {
+.option input {
 
   width:
     auto;
 
   margin-right:
     8px;
-
-}
-
-textarea {
-
-  width:
-    100%;
-
-  min-height:
-    120px;
-
-  padding:
-    12px;
-
-  border:
-    1px solid #ccc;
-
-  border-radius:
-    8px;
-
-  font-size:
-    15px;
-
-  resize:
-    vertical;
-
-}
-
-.success {
-
-  background:
-    #198754;
 
 }
 
@@ -420,20 +433,16 @@ textarea {
 
 }
 
-.center {
+.loading {
 
   text-align:
     center;
 
-}
-
-.small {
-
-  font-size:
-    13px;
+  padding:
+    25px;
 
   color:
-    #666;
+    #6b7280;
 
 }
 
@@ -444,12 +453,13 @@ textarea {
 
 <body>
 
+
 <div class="container">
 
 
-<!-- ========================================================
+<!-- ======================================================
      HOME
-========================================================= -->
+     ====================================================== -->
 
 <div
   id="homePage"
@@ -519,7 +529,7 @@ textarea {
       </li>
 
       <li>
-        Setelah tes dikirim, tes tidak dapat diulang.
+        Setelah tes dikirim, peserta tidak dapat mengulang.
       </li>
 
     </ol>
@@ -541,9 +551,9 @@ textarea {
 </div>
 
 
-<!-- ========================================================
+<!-- ======================================================
      WAITING
-========================================================= -->
+     ====================================================== -->
 
 <div
   id="waitingPage"
@@ -582,9 +592,9 @@ textarea {
 </div>
 
 
-<!-- ========================================================
+<!-- ======================================================
      APPROVED
-========================================================= -->
+     ====================================================== -->
 
 <div
   id="approvedPage"
@@ -619,9 +629,9 @@ textarea {
 </div>
 
 
-<!-- ========================================================
+<!-- ======================================================
      EXAM
-========================================================= -->
+     ====================================================== -->
 
 <div
   id="examPage"
@@ -673,9 +683,9 @@ textarea {
 </div>
 
 
-<!-- ========================================================
+<!-- ======================================================
      FINISHED
-========================================================= -->
+     ====================================================== -->
 
 <div
   id="finishedPage"
@@ -702,17 +712,20 @@ textarea {
 
 <script>
 
+
 /* ==========================================================
-   WEB APP URL
-========================================================== */
+ * URL WEB APP
+ * ==========================================================
+ */
 
 const WEB_APP_URL =
   'https://script.google.com/macros/s/AKfycbwF-IzqUDYnpuQXbCrAwi4f_dKGNtRO3xK2qc2akf2ylRYwiHEEnunIrDSDXElzP5gZ/exec';
 
 
 /* ==========================================================
-   GLOBAL
-========================================================== */
+ * STATE
+ * ==========================================================
+ */
 
 let currentEmail = '';
 
@@ -734,21 +747,27 @@ let isSubmitting = false;
 
 
 /* ==========================================================
-   HELPER
-========================================================== */
+ * HELPER DOM
+ * ==========================================================
+ */
 
 function $(id) {
 
-  return document.getElementById(id);
+  return document.getElementById(
+    id
+  );
 
 }
 
 
 /* ==========================================================
-   SHOW PAGE
-========================================================== */
+ * PAGE
+ * ==========================================================
+ */
 
-function showOnly(pageId) {
+function showOnly(
+  pageId
+) {
 
   const pages = [
 
@@ -768,54 +787,50 @@ function showOnly(pageId) {
   pages.forEach(
     function(id) {
 
-      const el =
-        $(id);
-
-      if (!el) {
-        return;
-      }
-
-      el.classList.toggle(
-        'hidden',
-        id !== pageId
-      );
+      $(id)
+        .classList
+        .add(
+          'hidden'
+        );
 
     }
   );
+
+
+  $(pageId)
+    .classList
+    .remove(
+      'hidden'
+    );
 
 }
 
 
 /* ==========================================================
-   ERROR
-========================================================== */
+ * ERROR
+ * ==========================================================
+ */
 
 function showError(
   elementId,
   message
 ) {
 
-  const el =
-    $(elementId);
-
-  if (!el) {
-    return;
-  }
-
-  el.innerHTML =
-    '<div class="error">' +
-    escapeHtml(
-      message ||
-      'Terjadi kesalahan.'
-    ) +
-    '</div>';
+  $(elementId)
+    .innerHTML =
+      '<div class="error">' +
+      escapeHtml(
+        message
+      ) +
+      '</div>';
 
 }
 
 
 /* ==========================================================
-   ESCAPE HTML
-========================================================== */
+ * HTML ESCAPE
+ * ==========================================================
+ */
 
 function escapeHtml(
   value
@@ -851,143 +866,248 @@ function escapeHtml(
 
 
 /* ==========================================================
-   API FETCH
-========================================================== */
+ * JSONP API
+ *
+ * TIDAK MENGGUNAKAN FETCH.
+ *
+ * Ini penting karena GitHub Pages dan Apps Script
+ * berbeda domain.
+ * ==========================================================
+ */
 
-async function api(
+function api(
   action,
-  data = {}
+  params = {}
 ) {
 
-  const body =
-    new URLSearchParams();
+  return new Promise(
+    function(resolve, reject) {
 
-  body.append(
-    'action',
-    action
-  );
+      const callbackName =
+        '__apiCallback_' +
+        Date.now() +
+        '_' +
+        Math.floor(
+          Math.random() * 100000
+        );
 
 
-  Object.keys(data)
-    .forEach(
-      function(key) {
+      const script =
+        document.createElement(
+          'script'
+        );
 
-        let value =
-          data[key];
+
+      let finished =
+        false;
+
+
+      const timeout =
+        setTimeout(
+          function() {
+
+            if (finished) {
+              return;
+            }
+
+            finished = true;
+
+            cleanup();
+
+            reject(
+              new Error(
+                'Gagal terhubung ke Web App. Periksa deployment Apps Script.'
+              )
+            );
+
+          },
+          20000
+        );
+
+
+      function cleanup() {
+
+        clearTimeout(
+          timeout
+        );
+
+        try {
+
+          delete window[
+            callbackName
+          ];
+
+        } catch (e) {
+
+          window[
+            callbackName
+          ] = undefined;
+
+        }
+
 
         if (
-          value !== null &&
-          typeof value ===
-            'object'
+          script.parentNode
         ) {
 
-          value =
-            JSON.stringify(
-              value
+          script.parentNode
+            .removeChild(
+              script
             );
 
         }
 
-        body.append(
-          key,
-          value == null
-            ? ''
-            : String(value)
-        );
-
       }
-    );
 
 
-  let response;
+      window[
+        callbackName
+      ] =
+        function(data) {
 
-  try {
+          if (finished) {
+            return;
+          }
 
-    response =
-      await fetch(
-        WEB_APP_URL,
-        {
 
-          method:
-            'POST',
+          finished = true;
 
-          mode:
-            'cors',
+          cleanup();
 
-          headers: {
+          resolve(
+            data
+          );
 
-            'Content-Type':
-              'application/x-www-form-urlencoded;charset=UTF-8'
+        };
 
-          },
 
-          body:
-            body.toString(),
+      const query =
+        new URLSearchParams();
 
-          redirect:
-            'follow'
+
+      query.set(
+        'action',
+        action
+      );
+
+
+      query.set(
+        'callback',
+        callbackName
+      );
+
+
+      Object.keys(
+        params
+      )
+      .forEach(
+        function(key) {
+
+          const value =
+            params[key];
+
+
+          if (
+            value !== undefined &&
+            value !== null
+          ) {
+
+            query.set(
+              key,
+              String(value)
+            );
+
+          }
 
         }
       );
 
-  } catch (error) {
 
-    throw new Error(
-      'Gagal terhubung ke Web App. Pastikan deployment Apps Script sudah aktif dan aksesnya "Anyone".'
-    );
-
-  }
+      script.src =
+        WEB_APP_URL +
+        '?' +
+        query.toString();
 
 
-  if (!response.ok) {
+      script.onerror =
+        function() {
 
-    throw new Error(
-      'Web App mengembalikan HTTP ' +
-      response.status
-    );
-
-  }
+          if (finished) {
+            return;
+          }
 
 
-  let result;
+          finished = true;
 
-  try {
-
-    result =
-      await response.json();
-
-  } catch (error) {
-
-    throw new Error(
-      'Respons Web App bukan JSON. Pastikan Code.gs sudah diganti dengan versi API.'
-    );
-
-  }
+          cleanup();
 
 
-  if (
-    result &&
-    result.success === false &&
-    result.message
-  ) {
+          reject(
+            new Error(
+              'Gagal terhubung ke Web App. Pastikan deployment Apps Script sudah aktif dan URL benar.'
+            )
+          );
 
-    /*
-     * Beberapa response false memang bukan
-     * error teknis, misalnya waiting.
-     * Tetap dikembalikan.
-     */
-
-  }
+        };
 
 
-  return result;
+      document.body.appendChild(
+        script
+      );
+
+    }
+  );
 
 }
 
 
 /* ==========================================================
-   CHECK PARTICIPANT
-========================================================== */
+ * CEK KONEKSI
+ * ==========================================================
+ */
+
+async function testConnection() {
+
+  try {
+
+    const result =
+      await api(
+        'ping'
+      );
+
+
+    if (
+      !result ||
+      !result.success
+    ) {
+
+      throw new Error(
+        'Web App tidak merespons.'
+      );
+
+    }
+
+
+    return true;
+
+
+  } catch (error) {
+
+    console.error(
+      error
+    );
+
+    return false;
+
+  }
+
+}
+
+
+/* ==========================================================
+ * PERIKSA PESERTA
+ * ==========================================================
+ */
 
 async function checkParticipant() {
 
@@ -997,10 +1117,16 @@ async function checkParticipant() {
       .trim()
       .toLowerCase();
 
+
   const name =
     $('name')
       .value
       .trim();
+
+
+  $('homeMessage')
+    .innerHTML =
+      '';
 
 
   if (!email) {
@@ -1030,6 +1156,7 @@ async function checkParticipant() {
   const button =
     $('checkButton');
 
+
   button.disabled =
     true;
 
@@ -1037,84 +1164,60 @@ async function checkParticipant() {
     'MEMERIKSA...';
 
 
-  $('homeMessage')
-    .innerHTML = '';
-
-
   try {
 
-    const result =
+    /*
+     * CEK STATUS DULU
+     */
+
+    let result =
       await api(
-        'register',
+        'checkParticipant',
         {
-
-          email:
-            email,
-
-          name:
-            name
-
+          email: email
         }
       );
 
 
+    /*
+     * BELUM TERDAFTAR
+     * OTOMATIS DAFTARKAN
+     */
+
     if (
-      result.hasHistory
+      result &&
+      result.registered === false &&
+      !result.hasHistory
     ) {
 
-      currentEmail =
-        email;
-
-      currentName =
-        name;
-
-      showOnly(
-        'finishedPage'
-      );
-
-      $('finishedMessage')
-        .innerHTML =
-          '<strong>Tes tidak dapat diulang.</strong><br><br>' +
-          escapeHtml(
-            result.message
-          );
-
-      return;
+      result =
+        await api(
+          'registerParticipant',
+          {
+            email: email,
+            name: name
+          }
+        );
 
     }
 
 
-    currentEmail =
-      result.email ||
-      email;
-
-    currentName =
-      result.nama ||
-      name;
-
-
-    if (
-      result.approved
-    ) {
-
-      showApproved(
-        result
-      );
-
-      return;
-
-    }
-
-
-    showWaiting(
+    handleParticipantResult(
       result
     );
 
+
   } catch (error) {
+
+    console.error(
+      error
+    );
+
 
     showError(
       'homeMessage',
-      error.message
+      error.message ||
+      'Gagal terhubung ke Web App.'
     );
 
   } finally {
@@ -1131,85 +1234,177 @@ async function checkParticipant() {
 
 
 /* ==========================================================
-   WAITING
-========================================================== */
+ * HASIL PESERTA
+ * ==========================================================
+ */
 
-function showWaiting(
-  data
+function handleParticipantResult(
+  result
 ) {
 
-  showOnly(
-    'waitingPage'
-  );
+  if (!result) {
 
+    showError(
+      'homeMessage',
+      'Tidak ada respons dari Web App.'
+    );
 
-  $('waitingInfo')
-    .innerHTML =
-
-      '<strong>Nama:</strong> ' +
-      escapeHtml(
-        data.nama ||
-        currentName
-      ) +
-      '<br>' +
-
-      '<strong>Email:</strong> ' +
-      escapeHtml(
-        data.email ||
-        currentEmail
-      );
-
-}
-
-
-/* ==========================================================
-   APPROVED
-========================================================== */
-
-function showApproved(
-  data
-) {
-
-  showOnly(
-    'approvedPage'
-  );
-
-
-  $('approvedInfo')
-    .innerHTML =
-
-      '<strong>Nama:</strong> ' +
-      escapeHtml(
-        data.nama ||
-        currentName
-      ) +
-      '<br>' +
-
-      '<strong>Email:</strong> ' +
-      escapeHtml(
-        data.email ||
-        currentEmail
-      );
-
-}
-
-
-/* ==========================================================
-   CHECK STATUS AGAIN
-========================================================== */
-
-async function checkStatusAgain() {
-
-  if (!currentEmail) {
-
-    currentEmail =
-      $('email')
-        .value
-        .trim()
-        .toLowerCase();
+    return;
 
   }
 
+
+  if (
+    result.hasHistory
+  ) {
+
+    showError(
+      'homeMessage',
+      result.message ||
+      'Email sudah pernah mengikuti tes.'
+    );
+
+    return;
+
+  }
+
+
+  currentEmail =
+    result.email ||
+    currentEmail;
+
+
+  currentName =
+    result.nama ||
+    currentName ||
+    $('name').value.trim();
+
+
+  /*
+   * SESSION AKTIF
+   */
+
+  if (
+    result.activeSession
+  ) {
+
+    openExam(
+      result
+    );
+
+    return;
+
+  }
+
+
+  /*
+   * WAITING
+   */
+
+  if (
+    result.registered &&
+    !result.approved
+  ) {
+
+    $('waitingInfo')
+      .innerHTML =
+        participantInfoHtml(
+          result
+        );
+
+
+    showOnly(
+      'waitingPage'
+    );
+
+    return;
+
+  }
+
+
+  /*
+   * APPROVED
+   */
+
+  if (
+    result.approved
+  ) {
+
+    $('approvedInfo')
+      .innerHTML =
+        participantInfoHtml(
+          result
+        );
+
+
+    showOnly(
+      'approvedPage'
+    );
+
+    return;
+
+  }
+
+
+  showError(
+    'homeMessage',
+    result.message ||
+    'Data tidak dapat diproses.'
+  );
+
+}
+
+
+/* ==========================================================
+ * INFO PESERTA
+ * ==========================================================
+ */
+
+function participantInfoHtml(
+  data
+) {
+
+  return (
+
+    '<strong>Nama:</strong> ' +
+    escapeHtml(
+      data.nama ||
+      currentName ||
+      ''
+    ) +
+
+    '<br>' +
+
+    '<strong>Email:</strong> ' +
+    escapeHtml(
+      data.email ||
+      currentEmail ||
+      ''
+    ) +
+
+    (
+      data.code
+        ? (
+          '<br>' +
+          '<strong>Kode:</strong> ' +
+          escapeHtml(
+            data.code
+          )
+        )
+        : ''
+    )
+
+  );
+
+}
+
+
+/* ==========================================================
+ * CEK STATUS LAGI
+ * ==========================================================
+ */
+
+async function checkStatusAgain() {
 
   if (!currentEmail) {
 
@@ -1226,84 +1421,25 @@ async function checkStatusAgain() {
 
     const result =
       await api(
-        'status',
+        'checkStatus',
         {
-
           email:
             currentEmail
-
         }
       );
 
 
-    if (
-      result.hasHistory
-    ) {
-
-      showOnly(
-        'finishedPage'
-      );
-
-      $('finishedMessage')
-        .innerHTML =
-          '<strong>Tes sudah selesai.</strong><br><br>' +
-          escapeHtml(
-            result.message
-          );
-
-      return;
-
-    }
-
-
-    if (
-      result.activeSession
-    ) {
-
-      currentName =
-        result.nama ||
-        currentName;
-
-      restoreExam(
-        result
-      );
-
-      return;
-
-    }
-
-
-    if (
-      result.approved
-    ) {
-
-      currentName =
-        result.nama ||
-        currentName;
-
-      showApproved(
-        result
-      );
-
-      return;
-
-    }
-
-
-    showWaiting(
+    handleParticipantResult(
       result
     );
 
-  } catch (error) {
 
-    /*
-     * Tetap berada di halaman waiting
-     * jika pemeriksaan gagal.
-     */
+  } catch (error) {
 
     showError(
       'waitingInfo',
-      error.message
+      error.message ||
+      'Gagal memeriksa status.'
     );
 
   }
@@ -1312,24 +1448,26 @@ async function checkStatusAgain() {
 
 
 /* ==========================================================
-   START TEST
-========================================================== */
+ * MULAI TES
+ * ==========================================================
+ */
 
 async function startTest() {
 
   if (!currentEmail) {
 
-    currentEmail =
-      $('email')
-        .value
-        .trim()
-        .toLowerCase();
+    showOnly(
+      'homePage'
+    );
+
+    return;
 
   }
 
 
   const button =
     $('startButton');
+
 
   button.disabled =
     true;
@@ -1342,73 +1480,54 @@ async function startTest() {
 
     const result =
       await api(
-        'start',
+        'startExam',
         {
-
           email:
             currentEmail
-
         }
       );
 
 
     if (
-      result.waiting
-    ) {
-
-      showWaiting(
-        result
-      );
-
-      return;
-
-    }
-
-
-    if (
-      result.activeSession
-    ) {
-
-      restoreExam(
-        result
-      );
-
-      return;
-
-    }
-
-
-    if (
+      !result ||
       !result.success
     ) {
 
+      if (
+        result &&
+        result.waiting
+      ) {
+
+        showOnly(
+          'waitingPage'
+        );
+
+        return;
+
+      }
+
+
       throw new Error(
-        result.message ||
-        'Tes tidak dapat dimulai.'
+        result &&
+        result.message
+          ? result.message
+          : 'Tes gagal dimulai.'
       );
 
     }
 
 
-    restoreExam(
+    openExam(
       result
     );
 
+
   } catch (error) {
-
-    showApproved(
-      {
-        email:
-          currentEmail,
-
-        nama:
-          currentName
-      }
-    );
 
     showError(
       'approvedInfo',
-      error.message
+      error.message ||
+      'Gagal memulai tes.'
     );
 
   } finally {
@@ -1425,10 +1544,11 @@ async function startTest() {
 
 
 /* ==========================================================
-   RESTORE / START EXAM
-========================================================== */
+ * BUKA EXAM
+ * ==========================================================
+ */
 
-function restoreExam(
+function openExam(
   data
 ) {
 
@@ -1436,55 +1556,55 @@ function restoreExam(
     data.email ||
     currentEmail;
 
+
   currentName =
     data.nama ||
     currentName;
+
 
   currentSessionId =
     data.sessionId ||
     currentSessionId;
 
+
   questions =
-    Array.isArray(
-      data.questions
-    )
-      ? data.questions
-      : [];
+    data.questions ||
+    [];
+
 
   answers =
     data.answers ||
     {};
 
+
   endTime =
     Number(
-      data.endTime ||
-      (
-        Date.now() +
-        Number(
-          data.remaining ||
-          0
-        )
-      )
+      data.endTime || 0
     );
 
 
-  showOnly(
-    'examPage'
-  );
+  if (
+    !currentSessionId
+  ) {
+
+    showError(
+      'homeMessage',
+      'Session ujian tidak ditemukan.'
+    );
+
+    showOnly(
+      'homePage'
+    );
+
+    return;
+
+  }
 
 
   $('examParticipant')
     .innerHTML =
-
-      '<strong>Nama:</strong> ' +
-      escapeHtml(
-        currentName
-      ) +
-      '<br>' +
-
-      '<strong>Email:</strong> ' +
-      escapeHtml(
-        currentEmail
+      participantInfoHtml(
+        data
       );
 
 
@@ -1492,19 +1612,26 @@ function restoreExam(
 
   updateProgress();
 
+  showOnly(
+    'examPage'
+  );
+
+
   startTimer();
 
 }
 
 
 /* ==========================================================
-   RENDER QUESTIONS
-========================================================== */
+ * RENDER SOAL
+ * ==========================================================
+ */
 
 function renderQuestions() {
 
   const container =
     $('questionsContainer');
+
 
   container.innerHTML =
     '';
@@ -1516,7 +1643,7 @@ function renderQuestions() {
 
     container.innerHTML =
       '<div class="error">' +
-      'Tidak ada soal yang diterima.' +
+      'Tidak ada soal.' +
       '</div>';
 
     return;
@@ -1530,302 +1657,197 @@ function renderQuestions() {
       const number =
         index + 1;
 
+
       const box =
         document.createElement(
           'div'
         );
 
+
       box.className =
         'question';
 
 
-      const title =
-        document.createElement(
-          'div'
-        );
-
-      title.className =
-        'questionTitle';
-
-
-      title.innerText =
+      let html =
+        '<div class="questionTitle">' +
         number +
         '. ' +
-        q.question;
-
-
-      box.appendChild(
-        title
-      );
+        escapeHtml(
+          q.question
+        ) +
+        '</div>';
 
 
       const type =
         String(
-          q.type ||
-          'TEXT'
+          q.type || 'TEXT'
         )
-          .trim()
           .toUpperCase();
 
 
-      const choices =
-        Array.isArray(
-          q.choices
-        )
-          ? q.choices
-          : [];
-
-
       /*
-       * RADIO / PILIHAN GANDA
+       * PILIHAN
        */
 
       if (
-        type === 'RADIO' ||
-        type === 'SINGLE' ||
-        type === 'SINGLE_CHOICE' ||
-        type === 'PILIHAN GANDA' ||
-        type === 'PILIHAN_GANDA'
+        (
+          type === 'RADIO' ||
+          type === 'CHOICE' ||
+          type === 'SELECT' ||
+          type === 'MULTIPLE_CHOICE'
+        ) &&
+        Array.isArray(
+          q.choices
+        ) &&
+        q.choices.length
       ) {
 
-        choices.forEach(
+        q.choices.forEach(
           function(choice) {
 
-            const label =
-              document.createElement(
-                'label'
-              );
-
-            label.className =
-              'choice';
-
-
-            const input =
-              document.createElement(
-                'input'
-              );
-
-            input.type =
-              'radio';
-
-            input.name =
-              'question_' +
-              number;
-
-            input.value =
-              choice;
-
-
-            if (
+            const checked =
               String(
                 answers[
                   String(number)
-                ] ||
-                ''
+                ] || ''
               ) ===
-              String(choice)
-            ) {
-
-              input.checked =
-                true;
-
-            }
+              String(choice);
 
 
-            input.addEventListener(
-              'change',
-              function() {
+            html +=
 
-                answerChanged(
-                  number,
-                  input.value
-                );
+              '<label class="option">' +
 
-              }
-            );
+              '<input ' +
 
+              'type="radio" ' +
 
-            label.appendChild(
-              input
-            );
+              'name="question_' +
+              number +
+              '" ' +
 
-            label.appendChild(
-              document.createTextNode(
+              'value="' +
+              escapeHtml(
                 choice
-              )
-            );
+              ) +
+              '" ' +
 
+              (
+                checked
+                  ? 'checked'
+                  : ''
+              ) +
 
-            box.appendChild(
-              label
-            );
+              ' onchange="answerChanged(' +
+              number +
+              ', this.value)">' +
+
+              escapeHtml(
+                choice
+              ) +
+
+              '</label>';
 
           }
-        );
-
-
-      /*
-       * CHECKBOX / MULTIPLE
-       */
-
-      } else if (
-
-        type === 'CHECKBOX' ||
-        type === 'MULTIPLE' ||
-        type === 'MULTI' ||
-        type === 'MULTIPLE_CHOICE'
-
-      ) {
-
-        let selected =
-          answers[
-            String(number)
-          ];
-
-
-        if (
-          !Array.isArray(
-            selected
-          )
-        ) {
-
-          selected =
-            selected
-              ? String(
-                  selected
-                )
-                  .split(',')
-                  .map(
-                    function(v) {
-                      return v.trim();
-                    }
-                  )
-                  .filter(Boolean)
-              : [];
-
-        }
-
-
-        choices.forEach(
-          function(choice) {
-
-            const label =
-              document.createElement(
-                'label'
-              );
-
-            label.className =
-              'choice';
-
-
-            const input =
-              document.createElement(
-                'input'
-              );
-
-            input.type =
-              'checkbox';
-
-            input.value =
-              choice;
-
-
-            input.checked =
-              selected.includes(
-                choice
-              );
-
-
-            input.addEventListener(
-              'change',
-              function() {
-
-                const checked =
-                  Array.from(
-                    box.querySelectorAll(
-                      'input[type="checkbox"]'
-                    )
-                  )
-                  .filter(
-                    function(el) {
-                      return el.checked;
-                    }
-                  )
-                  .map(
-                    function(el) {
-                      return el.value;
-                    }
-                  );
-
-
-                answerChanged(
-                  number,
-                  checked
-                );
-
-              }
-            );
-
-
-            label.appendChild(
-              input
-            );
-
-            label.appendChild(
-              document.createTextNode(
-                choice
-              )
-            );
-
-
-            box.appendChild(
-              label
-            );
-
-          }
-        );
-
-
-      /*
-       * TEXT
-       */
-
-      } else {
-
-        const textarea =
-          document.createElement(
-            'textarea'
-          );
-
-
-        textarea.placeholder =
-          'Tulis jawaban Anda...';
-
-
-        textarea.value =
-          answers[
-            String(number)
-          ] || '';
-
-
-        textarea.addEventListener(
-          'input',
-          function() {
-
-            answerChanged(
-              number,
-              textarea.value
-            );
-
-          }
-        );
-
-
-        box.appendChild(
-          textarea
         );
 
       }
+
+
+      /*
+       * TRUE/FALSE
+       */
+
+      else if (
+        type === 'TRUE_FALSE' ||
+        type === 'BOOLEAN'
+      ) {
+
+        [
+          'Ya',
+          'Tidak'
+        ]
+        .forEach(
+          function(choice) {
+
+            const checked =
+              String(
+                answers[
+                  String(number)
+                ] || ''
+              ) ===
+              choice;
+
+
+            html +=
+
+              '<label class="option">' +
+
+              '<input ' +
+
+              'type="radio" ' +
+
+              'name="question_' +
+              number +
+              '" ' +
+
+              'value="' +
+              choice +
+              '" ' +
+
+              (
+                checked
+                  ? 'checked'
+                  : ''
+              ) +
+
+              ' onchange="answerChanged(' +
+              number +
+              ', this.value)">' +
+
+              choice +
+
+              '</label>';
+
+          }
+        );
+
+      }
+
+
+      /*
+       * TEXT / ESSAY
+       */
+
+      else {
+
+        html +=
+
+          '<textarea ' +
+
+          'id="question_' +
+          number +
+          '" ' +
+
+          'placeholder="Ketik jawaban Anda..." ' +
+
+          'oninput="answerChanged(' +
+          number +
+          ', this.value)">' +
+
+          escapeHtml(
+            answers[
+              String(number)
+            ] || ''
+          ) +
+
+          '</textarea>';
+
+      }
+
+
+      box.innerHTML =
+        html;
 
 
       container.appendChild(
@@ -1839,8 +1861,9 @@ function renderQuestions() {
 
 
 /* ==========================================================
-   ANSWER CHANGED
-========================================================== */
+ * JAWABAN BERUBAH
+ * ==========================================================
+ */
 
 function answerChanged(
   number,
@@ -1856,7 +1879,14 @@ function answerChanged(
   updateProgress();
 
 
-  if (saveTimeout) {
+  /*
+   * Simpan satu jawaban.
+   * Tidak mengirim seluruh object.
+   */
+
+  if (
+    saveTimeout
+  ) {
 
     clearTimeout(
       saveTimeout
@@ -1867,16 +1897,79 @@ function answerChanged(
 
   saveTimeout =
     setTimeout(
-      saveCurrentAnswers,
-      700
+      function() {
+
+        saveSingleAnswer(
+          number,
+          value
+        );
+
+      },
+      500
     );
 
 }
 
 
 /* ==========================================================
-   PROGRESS
-========================================================== */
+ * SIMPAN SATU JAWABAN
+ * ==========================================================
+ */
+
+async function saveSingleAnswer(
+  number,
+  value
+) {
+
+  if (
+    !currentSessionId ||
+    !currentEmail ||
+    isSubmitting
+  ) {
+
+    return;
+
+  }
+
+
+  try {
+
+    await api(
+      'saveAnswer',
+      {
+
+        sessionId:
+          currentSessionId,
+
+        email:
+          currentEmail,
+
+        number:
+          number,
+
+        answer:
+          value
+
+      }
+    );
+
+
+  } catch (error) {
+
+    console.log(
+      'Gagal autosave:',
+      error
+    );
+
+  }
+
+}
+
+
+/* ==========================================================
+ * PROGRESS
+ * ==========================================================
+ */
 
 function updateProgress() {
 
@@ -1889,7 +1982,8 @@ function updateProgress() {
   }
 
 
-  let answered = 0;
+  let answered =
+    0;
 
 
   questions.forEach(
@@ -1909,13 +2003,9 @@ function updateProgress() {
 
         value !== null &&
 
-        (
-          Array.isArray(value)
-            ? value.length > 0
-            : String(
-                value
-              ).trim() !== ''
-        )
+        String(
+          value
+        ).trim() !== ''
 
       ) {
 
@@ -1948,63 +2038,15 @@ function updateProgress() {
 
 
 /* ==========================================================
-   SAVE ANSWERS
-========================================================== */
-
-async function saveCurrentAnswers() {
-
-  if (
-
-    !currentSessionId ||
-
-    !currentEmail ||
-
-    isSubmitting
-
-  ) {
-
-    return;
-
-  }
-
-
-  try {
-
-    await api(
-      'save',
-      {
-
-        sessionId:
-          currentSessionId,
-
-        email:
-          currentEmail,
-
-        answers:
-          answers
-
-      }
-    );
-
-  } catch (error) {
-
-    console.log(
-      'Gagal autosave:',
-      error
-    );
-
-  }
-
-}
-
-
-/* ==========================================================
-   TIMER
-========================================================== */
+ * TIMER
+ * ==========================================================
+ */
 
 function startTimer() {
 
-  if (timerInterval) {
+  if (
+    timerInterval
+  ) {
 
     clearInterval(
       timerInterval
@@ -2026,8 +2068,9 @@ function startTimer() {
 
 
 /* ==========================================================
-   UPDATE TIMER
-========================================================== */
+ * UPDATE TIMER
+ * ==========================================================
+ */
 
 function updateTimer() {
 
@@ -2041,21 +2084,18 @@ function updateTimer() {
 
   const totalSeconds =
     Math.floor(
-      remaining /
-      1000
+      remaining / 1000
     );
 
 
   const minutes =
     Math.floor(
-      totalSeconds /
-      60
+      totalSeconds / 60
     );
 
 
   const seconds =
-    totalSeconds %
-    60;
+    totalSeconds % 60;
 
 
   $('timer')
@@ -2137,8 +2177,9 @@ function updateTimer() {
 
 
 /* ==========================================================
-   AUTO SUBMIT
-========================================================== */
+ * AUTO SUBMIT
+ * ==========================================================
+ */
 
 async function autoSubmitTest() {
 
@@ -2169,7 +2210,7 @@ async function autoSubmitTest() {
 
     const result =
       await api(
-        'submit',
+        'submitExam',
         {
 
           sessionId:
@@ -2179,7 +2220,9 @@ async function autoSubmitTest() {
             currentEmail,
 
           answers:
-            answers
+            JSON.stringify(
+              answers
+            )
 
         }
       );
@@ -2189,31 +2232,19 @@ async function autoSubmitTest() {
       result
     );
 
+
   } catch (error) {
 
     /*
-     * Jangan langsung menganggap sukses
-     * jika API gagal.
+     * Jika server sudah menerima submit tetapi
+     * browser gagal membaca respons, jangan membuat
+     * peserta mengulang.
      */
 
-    isSubmitting =
-      false;
-
-
-    $('submitButton')
-      .disabled =
-        false;
-
-
-    $('submitButton')
-      .innerText =
-        'KIRIM JAWABAN';
-
-
-    showError(
-      'examMessage',
-      error.message
-    );
+    finishExam({
+      success: true,
+      autoSubmit: true
+    });
 
   }
 
@@ -2221,8 +2252,9 @@ async function autoSubmitTest() {
 
 
 /* ==========================================================
-   MANUAL SUBMIT
-========================================================== */
+ * SUBMIT MANUAL
+ * ==========================================================
+ */
 
 async function submitTest() {
 
@@ -2264,30 +2296,9 @@ async function submitTest() {
 
   try {
 
-    /*
-     * Simpan jawaban terakhir
-     */
-
-    await api(
-      'save',
-      {
-
-        sessionId:
-          currentSessionId,
-
-        email:
-          currentEmail,
-
-        answers:
-          answers
-
-      }
-    );
-
-
     const result =
       await api(
-        'submit',
+        'submitExam',
         {
 
           sessionId:
@@ -2297,7 +2308,9 @@ async function submitTest() {
             currentEmail,
 
           answers:
-            answers
+            JSON.stringify(
+              answers
+            )
 
         }
       );
@@ -2306,6 +2319,7 @@ async function submitTest() {
     finishExam(
       result
     );
+
 
   } catch (error) {
 
@@ -2325,7 +2339,8 @@ async function submitTest() {
 
     showError(
       'examMessage',
-      error.message
+      error.message ||
+      'Gagal mengirim jawaban.'
     );
 
   }
@@ -2334,14 +2349,17 @@ async function submitTest() {
 
 
 /* ==========================================================
-   FINISH
-========================================================== */
+ * SELESAI
+ * ==========================================================
+ */
 
 function finishExam(
   data
 ) {
 
-  if (timerInterval) {
+  if (
+    timerInterval
+  ) {
 
     clearInterval(
       timerInterval
@@ -2397,8 +2415,9 @@ function finishExam(
 
 
 /* ==========================================================
-   PAGE LOAD
-========================================================== */
+ * LOAD
+ * ==========================================================
+ */
 
 window.addEventListener(
   'load',
@@ -2412,8 +2431,9 @@ window.addEventListener(
 
 
 /* ==========================================================
-   ENTER EMAIL
-========================================================== */
+ * ENTER EMAIL
+ * ==========================================================
+ */
 
 $('email')
   .addEventListener(
@@ -2421,8 +2441,7 @@ $('email')
     function(event) {
 
       if (
-        event.key ===
-        'Enter'
+        event.key === 'Enter'
       ) {
 
         event.preventDefault();
@@ -2436,8 +2455,9 @@ $('email')
 
 
 /* ==========================================================
-   ENTER NAME
-========================================================== */
+ * ENTER NAME
+ * ==========================================================
+ */
 
 $('name')
   .addEventListener(
@@ -2445,8 +2465,7 @@ $('name')
     function(event) {
 
       if (
-        event.key ===
-        'Enter'
+        event.key === 'Enter'
       ) {
 
         event.preventDefault();
@@ -2458,12 +2477,6 @@ $('name')
     }
   );
 
-
-/* ==========================================================
-   AUTO CHECK SESSION
-   Jika halaman di-refresh saat ujian aktif,
-   peserta bisa memasukkan email lalu cek lagi.
-========================================================== */
 
 </script>
 
